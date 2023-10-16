@@ -1,0 +1,16 @@
+.button{
+    height: 120px;
+    width: 200px;
+    margin: 40px;
+    font-size: 40px;
+    border: none;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+}
+.upperbuttondiv{
+    display: flex;
+    justify-content: center;
+}
+.lowerbuttondiv{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,92 @@
+/* Reset some default styles for better control */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Define the overall styling for the website */
+body {
+    background-color: #6a6b6e;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    background-image: url("legal.jpg");
+    background-size: cover;
+}
+
+/* Style the navigation bar */
+nav {
+    display:flex;
+    align-items: center;
+    justify-content:center ;
+    gap:200px;
+    background-color:#302c2b;
+    padding: 10px 0;
+    font-size: 30 px;
+    text-align: center;
+    height:80px;
+}
+
+nav a {
+    text-decoration: none;
+    color:white;
+    margin: 0 20px;
+    font-size: 18px;
+
+}
+.search-button{
+    height:50px;
+    width:70px;
+}
+/* Style the search bar */
+.search-bar {
+    
+    margin-top: 20px;
+    text-align: center;
+    float:right;
+}
+
+.search-input {
+    font-size: large;
+    width: 60%;
+    height:30px;
+    padding: 10px;
+    border: none;
+
+}
+
+
+/* Center align the icons */
+.icon-container {
+    height:100px;
+    width:250px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Style the icons */
+.icon {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    background-color: #444;
+    border-radius: 10%;
+    margin: 0 30px;
+}
+
+.icon-text {
+    font-size: 24px;
+    margin-top: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 20%;
+}
+.icon-container{
+    display:flex;
+    justify-content:flex-end ;
+
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NewPage</title>
+    <link rel="stylesheet" href="lawpage.css">
+</head>
+<body>
+    <h2>Successfully reached the new web page!!!!!</h2>
+    <div class="upperbuttondiv">
+        <button class="button" id="ipcbutton">IPC</button>
+        <button class="button" id="crpcbutton">CRPC</button>
+    </div>
+    <div class="lowerbuttondiv">
+        <button class="button" id="cpcbutton">CPC</button>
+        <button class="button" id="idabutton">IDA</button>
+        <button class="button" id="ieabutton">IEA</button>
+        <button class="button" id="mvabutton">MVA</button>
+    </div>
+    <script>
+        document.getElementById("ipcbutton").addEventListener("click", function () {
+            window.location.href = "ipcpage.html"; // Redirect to the IPC page
+        });
+
+        document.getElementById("crpcbutton").addEventListener("click", function () {
+            window.location.href = "crpcpage.html"; // Redirect to the CRPC page
+        });
+        document.getElementById("cpcbutton").addEventListener("click", function () {
+            window.location.href = "cpcpage.html"; // Redirect to the CRPC page
+        });
+        document.getElementById("idabutton").addEventListener("click", function () {
+            window.location.href = "idapage.html"; // Redirect to the CRPC page
+        });
+        document.getElementById("ieabutton").addEventListener("click", function () {
+            window.location.href = "ieapage.html"; // Redirect to the CRPC page
+        });
+        document.getElementById("mvabutton").addEventListener("click", function () {
+            window.location.href = "mvapage.html"; // Redirect to the CRPC page
+        });
+    </script>
+</body>
+</html>
+
