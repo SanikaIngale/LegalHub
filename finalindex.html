@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="finalstyle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="finalstyle.css" />
     <title>Legal Website</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Templates</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">Our Mission</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
     </nav>
 
     <!-- Search Bar -->
-    <div class="search-bar">
+    <!--<div class="search-bar">
         <input type="text" class="search-input" placeholder="Search...">
         <button class="search-button">Search</button>
-    </div>
+    </div>-->
 
     <!-- Icon Section -->
     <div class="icon-container">
-        <div class="icon">
-            <div class="icon-text"><button id="TheButton">Laws</button></div>
-        </div>
-        <div class="icon">
-            <div class="icon-text">Templates</div>
-        </div>
+      <div>
+        <div class="icon-text"><button id="TheButton1">Laws</button></div>
+      </div>
+      <div>
+        <div class="icon-text"><button id="TheButton2">Templates</button></div>
+      </div>
+      <div>
+        <div class="icon-text"><button id="TheButton3">Previous Cases</button></div>
+      </div>
     </div>
     <script>
-        document.getElementById("TheButton").addEventListener("click", function () {
+      document
+        .getElementById("TheButton1")
+        .addEventListener("click", function () {
           // Create a new anchor element
           var newAnchor = document.createElement("a");
           newAnchor.href = "newweb.html"; // Set the URL of the new page
@@ -44,5 +49,8 @@
           newAnchor.click();
         });
     </script>
-</body>
+    <footer>
+      <p>&copy; 2023 TheLegalHub</p>
+    </footer>
+  </body>
 </html>
