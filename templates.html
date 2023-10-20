@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Templates</title>
+    <style>
+        .button-container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 130px 100px 30px 100px; /* Add space around the button container */
+            gap: 100px;
+        }
+        .button-container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0px 100px 30px 100px; /* Add space around the button container */
+            gap: 100px;
+        }
+        .button {
+            flex: 1;
+            height: 200px;
+            width: 170px;
+            background-color: #4d4d4d; /* Background color of the button */
+            color: #fff; /* Text color */
+            text-decoration: none; /* Remove underlines from the link */
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 20px; /* Add space above the button */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .icon {
+            width: 50px; /* Adjust the icon size */
+            height: 50px;
+            margin-bottom: 10px; /* Add space between icon and text */
+        }
+
+        .button:hover {
+            transform: scale(1.1); /* Change background color on hover */
+        }
+        .header {
+            background-color: #4d4d4d;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 100; /* Ensure it's on top of other elements */
+        }
+
+        #documentPreview {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Add a semi-transparent background */
+            z-index: 2; /* Ensure it's on top of other elements */
+        }
+
+        #previewFrame {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+     <header class="header">
+        <h1>Templates</h1>
+    </header>
+    <div class="button-container1">
+        <button class="button" onclick="showDocument('POWER_OF_ATTORNEY.pdf', 'POWER OF ATTORNEY')">
+            <img src="templateicon.png" class="icon" alt="Icon">
+            POWER OF ATTORNEY
+        </button>
+        <button class="button" onclick="showDocument('LEAVE_AND_LICENSE_AGREEMENT.pdf', 'LEAVE AND LICENSE AGREEMENT')">
+            <img src="templateicon.png" class="icon" alt="Icon">
+            LEAVE AND LICENSE AGREEMENT
+        </button>
+    </div>
+    <div class="button-container2">
+        <button class="button" onclick="showDocument('GIFT_DEED.pdf', 'GIFT DEED')">
+            <img src="templateicon.png" class="icon" alt="Icon">
+            GIFT DEED
+        </button>
+        <button class="button" onclick="showDocument('AGREEMENT_FOR_SALE.pdf', 'AGREEMENT FOR SALE')">
+            <img src="templateicon.png" class="icon" alt="Icon">
+            AGREEMENT FOR SALE
+        </button>
+    </div>
+
+    <div id="documentPreview">
+        <iframe id="previewFrame"></iframe>
+    </div>
+
+    <script>
+        function showDocument(pdfPath, documentName) {
+            const documentPreview = document.getElementById('documentPreview');
+            const previewFrame = document.getElementById('previewFrame');
+
+            // Show the document preview container
+            documentPreview.style.display = 'block';
+
+            // Set the source of the iframe to the selected PDF document
+            previewFrame.src = pdfPath;
+        }
+    </script>
+</body>
+</html>
