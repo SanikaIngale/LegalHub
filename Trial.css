@@ -1,0 +1,56 @@
+
+body {
+    background-image: url("LawBackground.jpeg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0;
+}
+
+.button {
+    background-color: rgb(253, 218, 189);
+    border-radius: 10px;
+    height: 120px;
+    width: 200px;
+    margin: 20px; /* Adjust as needed for spacing */
+    font-size: 40px;
+    border: none;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   content:"Indian Penal Code";
+}
+
+.upperbuttondiv {
+
+    display: flex;
+    justify-content: center;
+}
+
+.lowerbuttondiv {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the buttons horizontally within each div */
+.upperbuttondiv .button,
+.lowerbuttondiv .button {
+    margin: 20px; /* Adjust as needed for spacing */
+}
+
+/* Optional: Style the buttons within the upper and lower divs differently */
+.upperbuttondiv .button {
+    background-color: rgb(253, 218, 189)
+}
+
+.lowerbuttondiv .button {
+    background-color:rgb(253, 218, 189)
+}
+
