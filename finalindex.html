@@ -3,25 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <link rel="stylesheet" href="finalstyle.css" />
     <title>Legal Website</title>
   </head>
   <body>
-    <!-- Navigation Bar -->
+    
     <nav>
+      <a href="#"id="main">TheLegalHub</a>
       <a href="#">Home</a>
       <a href="#">Our Mission</a>
       <a href="#">About Us</a>
       <a href="#">Contact Us</a>
     </nav>
 
-    <!-- Search Bar -->
-    <!--<div class="search-bar">
-        <input type="text" class="search-input" placeholder="Search...">
-        <button class="search-button">Search</button>
-    </div>-->
-
-    <!-- Icon Section -->
+    
     <div class="icon-container">
       <div>
         <div class="icon-text"><button id="TheButton1">Laws</button></div>
@@ -30,7 +26,9 @@
         <div class="icon-text"><button id="TheButton2">Templates</button></div>
       </div>
       <div>
-        <div class="icon-text"><button id="TheButton3">Previous Cases</button></div>
+        <div class="icon-text">
+          <button id="TheButton3">Previous Cases</button>
+        </div>
       </div>
     </div>
     <script>
@@ -48,9 +46,25 @@
           // Trigger a click event on the new anchor element
           newAnchor.click();
         });
+        document
+        .getElementById("TheButton3")
+        .addEventListener("click", function () {
+          // Create a new anchor element
+          var newAnchor = document.createElement("a");
+          newAnchor.href = "prevcases.html"; // Set the URL of the new page
+          newAnchor.id = "LinkToNewPage"; // Set an ID for the new anchor (optional)
+
+          // Append the new anchor element to the body
+          document.body.appendChild(newAnchor);
+
+          // Trigger a click event on the new anchor element
+          newAnchor.click();
+        });
     </script>
     <footer>
       <p>&copy; 2023 TheLegalHub</p>
     </footer>
   </body>
 </html>
+
+
