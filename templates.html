@@ -57,13 +57,13 @@
 
         #documentPreview {
             display: none;
-            position: fixed;
+            position: fixed; /* Set the position to fixed */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8); /* Add a semi-transparent background */
-            z-index: 2; /* Ensure it's on top of other elements */
+            z-index: 999; /* Set a higher z-index to make it appear on top */
         }
 
         #previewFrame {
