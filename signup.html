@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,17 +16,22 @@
             align-items: center;
             height: 100vh;
         }
+
         .signup-container {
+            position: relative;
+            /* Add position relative */
             background-color: #fff;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
         .signup-container h2 {
             margin-bottom: 20px;
             color: #333;
         }
+
         .signup-container input[type="text"],
         .signup-container input[type="email"],
         .signup-container input[type="password"] {
@@ -36,28 +42,48 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
         .signup-container button {
             width: 100%;
             padding: 10px;
             margin-top: 20px;
             border: none;
-            background-color: #007bff;
+            background-color: #44576d;
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         .signup-container button:hover {
-            background-color: #0056b3;
+            background-color: #007bff;
         }
+
         .signup-container p {
             margin-top: 15px;
             color: #666;
         }
+
+        /* Style for back arrow */
+        .back-arrow {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
     <div class="signup-container">
+        <!-- SVG for back arrow -->
+        <a href="index.html" class="back-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M20 11H7.414l4.293-4.293a1 1 0 1 0-1.414-1.414l-6 6a1 1 0 0 0 0 1.414l6 6a1 1 0 0 0 1.414-1.414L7.414 13H20a1 1 0 0 0 0-2z">
+                </path>
+            </svg>
+        </a>
         <h2>Signup</h2>
         <form>
             <input type="text" name="fullname" placeholder="Full Name" required>
@@ -68,7 +94,8 @@
             <br>
             <button type="submit">Signup</button>
         </form>
-        <p>Already have an account? <a href="#">Login</a></p>
+        <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
 </body>
+
 </html>
