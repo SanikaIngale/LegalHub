@@ -1,8 +1,105 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Templates</title>
     <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .links ul {
+                width: 100%;
+                text-align: center;
+            }
+            .links.active {
+                display: flex;
+            }
+        }
+
+        nav {
+            width: 100%;
+            position: relative;
+            z-index: 50;
+            background-color: #aac7d8;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            /* Adjusted */
+            align-items: center;
+            padding: 10px 20px;
+            /* Add padding for better spacing */
+        }
+
+        .logo img {
+            width: 150px;
+            /* Make the logo smaller */
+            display: block;
+        }
+
+        .links ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .links {
+            margin-left: auto;
+            /* Push links to the right */
+        }
+        .links a {
+            display: inline-block;
+            padding: 0.9rem 1.2rem;
+            color: #333;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            line-height: 1;
+            transition: 0.3s;
+            text-decoration: none;
+            /* Remove underlines */
+        }
+
+        .links a.active {
+            background-color: #44576d;
+            color: #dfebf6;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            padding: 0.9rem 2.1rem;
+            margin-left: 1rem;
+        }
+
+        .links a:hover {
+            color: #dfebf6;
+        }
+
+        .links a.active:hover {
+            color: #333;
+            background-color: #aac7d8;
+        }
+
+        .links a.active {
+            font-size: 1rem;
+            padding: 0.7rem 1.5rem;
+            margin-left: 0.6rem;
+        }
+
+
+
         .button-container1 {
             display: flex;
             flex-wrap: wrap;
@@ -18,31 +115,35 @@
             gap: 100px;
         }
         .button {
+            padding:15px;
             flex: 1;
             height: 200px;
             width: 170px;
             background-color: #4d4d4d; /* Background color of the button */
             color: #fff; /* Text color */
             text-decoration: none; /* Remove underlines from the link */
-            border-radius: 5px; /* Rounded corners */
-            margin-top: 20px; /* Add space above the button */
+            border-radius: 5px; 
+            position:relative;
+            margin-top: 10px;
+            margin-left: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            text-align: top;
             cursor: pointer;
         }
 
         .icon {
-            width: 50px; /* Adjust the icon size */
+            width: 50px;
             height: 50px;
-            margin-bottom: 10px; /* Add space between icon and text */
+            margin-bottom: 10px;
+            position:absolute;
+            top:10px;
+            left:10px;
+            
         }
 
-        .button:hover {
-            transform: scale(1.1); /* Change background color on hover */
-        }
         .header {
             background-color: #4d4d4d;
             color: white;
@@ -70,37 +171,104 @@
             width: 100%;
             height: 100%;
         }
+        .desc {
+    font-size:large;
+    font-style: oblique;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color:white;
+    text-align: left;
+}
+.label{
+    position: absolute;
+    top: 30px;
+    left:100px;
+    font-weight: bold;
+    font-size: medium;
+
+
+}
 
     </style>
 </head>
 <body>
-     <header class="header">
-        <h1>Templates</h1>
-    </header>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="logo1.png" alt="Logo" />
+            </div>
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="#header">Home</a>
+                    </li>
+                    <li>
+                        <a href="#ourmission">Our Mission</a>
+                    </li>
+                    <li>
+                        <a href="#laws">Laws</a>
+                    </li>
+                    <li>
+                        <a href="#templates">Templates</a>
+                    </li>
+                    <li>
+                        <a href="#previouscases">Previous Cases</a>
+                    </li>
+                    <li>
+                        <a href="#register" class="active">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="button-container1">
         <button class="button" onclick="showDocument('POWER_OF_ATTORNEY.pdf', 'POWER OF ATTORNEY')">
-            <img src="templateicon.png" class="icon" alt="Icon">
-            POWER OF ATTORNEY
+            <img src="boss_13794244.png" class="icon" alt="Icon">
+            <span class="label">POWER OF ATTORNEY</span>
+            <div class="desc">
+            Print this document to empower someone you trust to make decisions for you in areas like finances, property, and healthcare, with customizable limits and duration."
+               </div>
         </button>
         <button class="button" onclick="showDocument('LEAVE_AND_LICENSE_AGREEMENT.pdf', 'LEAVE AND LICENSE AGREEMENT')">
-            <img src="templateicon.png" class="icon" alt="Icon">
+            <img src="legal_13794690.png" class="icon" alt="Icon">
             LEAVE AND LICENSE AGREEMENT
+            <div class="desc">
+                Print this Leave and License Agreement to formalize the permission granted to someone to use your property for a specified period, outlining terms and conditions for the arrangement
+            </div>
         </button>
     </div>
     <div class="button-container2">
         <button class="button" onclick="showDocument('GIFT_DEED.pdf', 'GIFT DEED')">
-            <img src="templateicon.png" class="icon" alt="Icon">
+            <img src="wishlist_7248571.png" class="icon" alt="Icon">
             GIFT DEED
+            <div class="desc">
+            Print this Gift Deed to officially transfer ownership of a property or asset from one person to another as a gift, specifying the terms and conditions of the transfer
+            </div>
         </button>
         <button class="button" onclick="showDocument('AGREEMENT_FOR_SALE.pdf', 'AGREEMENT FOR SALE')">
-            <img src="templateicon.png" class="icon" alt="Icon">
+            <img src="comments-dollar_7928353.png" class="icon" alt="Icon">
             AGREEMENT FOR SALE
+            <div class="desc">
+            Print this Agreement of Sale to document the terms and conditions of a property transaction, specifying the agreed-upon details between the seller and the buyer
+            </div>
         </button>
     </div>
 
     <div id="documentPreview">
         <iframe id="previewFrame"></iframe>
     </div>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <img src="menu-icon.png" alt="Menu Icon">
+    </div>
+</div>
+</nav>
+
+// JavaScript function to toggle menu visibility
+
+</script>
 
     <script>
         function showDocument(pdfPath, documentName) {

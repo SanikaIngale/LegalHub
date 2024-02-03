@@ -1,53 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Lawsinfo</title>
     <link rel="stylesheet" href="lawsinfo.css" />
-  </head>
-  <body>
+</head>
+<body>
     <div class="sidebar">
-      <button class="sidebar-button" id="ipcbutton">IPC: Indian Penal Code</button>
-      <button class="sidebar-button" id="crpcbutton">CRPC: Code of Criminal Procedure</button>
-      <button class="sidebar-button" id="cpcbutton">CPC: Code of Civil Procedure</button>
-      <button class="sidebar-button" id="idabutton">IDA: Industrial Disputes Act</button>
-      <button class="sidebar-button" id="ieabutton">IEA: Indian Evidence Act</button>
-      <button class="sidebar-button" id="mvabutton">MVA: Motor Vehicles Act</button>
+        <button class="sidebar-button" id="ipcbutton">IPC: Indian Penal Code</button>
+        <button class="sidebar-button" id="crpcbutton">CRPC: Code of Criminal Procedure</button>
+        <button class="sidebar-button" id="cpcbutton">CPC: Code of Civil Procedure</button>
+        <button class="sidebar-button" id="idabutton">IDA: Industrial Disputes Act</button>
+        <button class="sidebar-button" id="ieabutton">IEA: Indian Evidence Act</button>
+        <button class="sidebar-button" id="mvabutton">MVA: Motor Vehicles Act</button>
     </div>
-    <div class="content">
-      <!-- Content goes here -->
+    <div class="content" id="content">
+        <!-- Content goes here -->
     </div>
     <script>
-      document
-        .getElementById("ipcbutton")
-        .addEventListener("click", function () {
-          window.location.href = "ipcpage.html"; // Redirect to the IPC page
+        // Function to fetch and display JSON data
+        function loadJSON(filename, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.overrideMimeType("application/json");
+            xhr.open('GET', filename, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    callback(xhr.responseText);
+                }
+            };
+            xhr.send(null);
+        }
+
+        // Function to display JSON data in the content area
+        // Function to display JSON data in the content area
+// Function to display JSON data in the content area
+function displayContent(data) {
+    var contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = ''; // Clear previous content
+
+    var jsonData = JSON.parse(data);
+    
+    // Loop through each item in the JSON array
+    jsonData.forEach(function(item, index) {
+        // Create a new div for each section
+        var sectionDiv = document.createElement('div');
+        sectionDiv.classList.add('section');
+
+        // Iterate through the properties of each item and create elements to display key-value pairs
+        for (var key in item) {
+            if (item.hasOwnProperty(key)) {
+                var keyElement = document.createElement('div');
+                keyElement.classList.add('key');
+                keyElement.textContent = key + ': ';
+
+                var valueElement = document.createElement('div');
+                valueElement.classList.add('value');
+                valueElement.textContent = item[key];
+
+                sectionDiv.appendChild(keyElement);
+                sectionDiv.appendChild(valueElement);
+            }
+        }
+
+        // Append the section div to the content area
+        contentDiv.appendChild(sectionDiv);
+    });
+}
+
+
+
+        // Event listeners for sidebar buttons
+        document.getElementById("ipcbutton").addEventListener("click", function () {
+            loadJSON("ipc.json", displayContent);
         });
 
-      document
-        .getElementById("crpcbutton")
-        .addEventListener("click", function () {
-          window.location.href = "crpcpage.html"; // Redirect to the CRPC page
+        document.getElementById("crpcbutton").addEventListener("click", function () {
+            loadJSON("crpc.json", displayContent);
         });
-      document
-        .getElementById("cpcbutton")
-        .addEventListener("click", function () {
-          window.location.href = "cpcpage.html"; // Redirect to the CRPC page
+
+        document.getElementById("cpcbutton").addEventListener("click", function () {
+            loadJSON("cpc.json", displayContent);
         });
-      document
-        .getElementById("idabutton")
-        .addEventListener("click", function () {
-          window.location.href = "idapage.html"; // Redirect to the CRPC page
+
+        document.getElementById("idabutton").addEventListener("click", function () {
+            loadJSON("ida.json", displayContent);
         });
-      document
-        .getElementById("ieabutton")
-        .addEventListener("click", function () {
-          window.location.href = "ieapage.html"; // Redirect to the CRPC page
+
+        document.getElementById("ieabutton").addEventListener("click", function () {
+            loadJSON("iea.json", displayContent);
         });
-      document
-        .getElementById("mvabutton")
-        .addEventListener("click", function () {
-          window.location.href = "mvapage.html"; // Redirect to the CRPC page
+
+        document.getElementById("mvabutton").addEventListener("click", function () {
+            loadJSON("mva.json", displayContent);
         });
     </script>
-  </body>
+</body>
 </html>

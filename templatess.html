@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates</title>
+    <link rel="stylesheet" href="remplatess.css">
+    <style>
+        /* Additional styling for the document preview */
+        #documentPreview {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .preview-container {
+            position: relative;
+            width: 100%;
+            height:auto;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding:0;
+        }
+
+        #previewFrame {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Templates</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#laws">Laws</a></li>
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#cases">Previous Cases</a></li>
+                <li><a href="#register" class="active">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="template-list">
+            <div class="template">
+                <h2>POWER OF ATTORNEY</h2>
+                <p>Print this document to empower someone you trust to make decisions for you in areas like finances, property, and healthcare, with customizable limits and duration.</p>
+                <button onclick="showDocument('POWER_OF_ATTORNEY.pdf')">View Document</button>
+            </div>
+            <div class="template">
+                <h2>LEAVE AND LICENSE AGREEMENT</h2>
+                <p>Print this Leave and License Agreement to formalize the permission granted to someone to use your property for a specified period, outlining terms and conditions for the arrangement.</p>
+                <button onclick="showDocument('LEAVE_AND_LICENSE_AGREEMENT.pdf')">View Document</button>
+            </div>
+            <div class="template">
+                <h2>GIFT DEED</h2>
+                <p>Print this Gift Deed to officially transfer ownership of a property or asset from one person to another as a gift, specifying the terms and conditions of the transfer.</p>
+                <button onclick="showDocument('GIFT_DEED.pdf')">View Document</button>
+            </div>
+            <div class="template">
+                <h2>AGREEMENT FOR SALE</h2>
+                <p>Print this Agreement of Sale to document the terms and conditions of a property transaction, specifying the agreed-upon details between the seller and the buyer.</p>
+                <button onclick="showDocument('AGREEMENT_FOR_SALE.pdf')">View Document</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="documentPreview">
+        <div class="preview-container">
+            <button onclick="closeDocumentPreview()" class="close-button">&times;</button>
+            <iframe id="previewFrame"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Templates Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showDocument(pdfPath) {
+            const documentPreview = document.getElementById('documentPreview');
+            const previewFrame = document.getElementById('previewFrame');
+
+            // Show the document preview container
+            documentPreview.style.display = 'block';
+
+            // Set the source of the iframe to the selected PDF document
+            previewFrame.src = pdfPath;
+        }
+
+        function closeDocumentPreview() {
+            const documentPreview = document.getElementById('documentPreview');
+            const previewFrame = document.getElementById('previewFrame');
+
+            // Hide the document preview container
+            documentPreview.style.display = 'none';
+
+            // Clear the source of the iframe
+            previewFrame.src = '';
+        }
+    </script>
+</body>
+</html>

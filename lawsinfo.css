@@ -4,6 +4,7 @@ body {
 }
 
 .sidebar {
+    position:sticky;
     background-color: #333;
     width: 200px;
     height: 100vh;
@@ -31,3 +32,52 @@ body {
     margin-left: 200px;
     padding: 20px;
 }
+/* Style for the content area */
+.content {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style for the list */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style for list items */
+li {
+    margin-bottom: 10px;
+}
+
+/* Style for key */
+.key {
+    font-weight: bold;
+}
+
+/* Style for value */
+.value {
+    margin-left: 10px;
+    color: #666;
+}
+/* CSS for the section container */
+.section {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+/* CSS for key */
+.key {
+    font-weight: bold;
+}
+
+/* CSS for value */
+.value {
+    margin-left: 10px;
+    color: #666;
+}
+
