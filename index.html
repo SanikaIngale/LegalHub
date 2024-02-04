@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined HTML and CSS</title>
+    <title>Welcome</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -381,6 +381,38 @@
         .lawyer-links:visited{
             color:#333;
         }
+        .select-a-law {
+            text-align: center;
+        }
+        
+        .law-category-container {
+            display: flex;
+            gap: 40px;
+            margin: 30px 50px;
+        }
+        
+        .law-category {
+            flex: 1;
+            background-color: #e6e6e6;
+            text-align: center;
+            padding: 20px;
+        
+        }
+        
+        .law-category h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .law-category-links {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .law-category-links:visited {
+            color: #333;
+        }
+        
         
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -399,22 +431,22 @@
             <div class="links">
                 <ul>
                     <li>
-                        <a href="#header">Home</a>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="#ourmission">Our Mission</a>
+                        <a href="index.html#find-a-lawyer">Find a lawyer</a>
+                    </li>                    
+                    <li>
+                        <a href="index.html#select-a-law">Laws</a>
                     </li>
                     <li>
-                        <a href="#laws">Laws</a>
+                        <a href="templatess.html">Templates</a>
                     </li>
                     <li>
-                        <a href="">Templates</a>
+                        <a href="legalCases.html">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="#previouscases">Previous Cases</a>
-                    </li>
-                    <li>
-                        <a href="#register" class="active">Register</a>
+                        <a href="signup.html" class="active">Register</a>
                     </li>
                 </ul>
             </div>
@@ -432,7 +464,28 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec nisi ut odio ultricies fermentum.</p>
         <!-- Add your mission content here -->
     </div>
-    <div class="find-a-lawyer">
+    <div class="select-a-law" id="select-a-law">
+        <h2>Select a Law</h2>
+        <div class="law-category-container">
+            <div class="law-category"><a href="lawinfoo.html" class="law-category-links">
+                <h3 id="ipcButton">IPC</h3>
+            </a></div>
+            <div class="law-category"><a href="lawinfoo.html" class="law-category-links">
+                <h3 id="crpcButton">CRPC</h3>
+            </a></div>
+            <div class="law-category"><a href="lawinfoo.html" class="law-category-links">
+                <h3 id="cpcButton">CPC</h3>
+            </a></div>
+            <div class="law-category"><a href="lawinfoo.html" class="law-category-links">
+                <h3 id="idaButton">IDA</h3>
+            </a></div>
+            <div class="law-category"><a href="lawinfoo.html" class="law-category-links">
+                <h3 id="ieaButton">IEA</h3>
+            </a></div>
+        </div>
+    </div>
+    
+    <div class="find-a-lawyer" id="find-a-lawyer">
         <h2>Find a Lawyer</h2>
         <div class="lawyer-type-container-1">
             <div class="lawyer-type"><a href="lawyersPage.html?button=Criminal" class="lawyer-links">
@@ -577,6 +630,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="lawbut.js"></script>
     
     </body>
     </html>
