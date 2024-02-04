@@ -25,12 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
         legalCasesContainer.innerHTML = '';
         cases.forEach(legalCase => {
             const caseBox = document.createElement('div');
+            const ifHeadlineNull = legalCase.expanded_headline;
+            const ifAdditionalNUll = legalCase.additional_content;
+            let content = ``;
+            if(ifHeadlineNull!=null){
+                content+=`<p>${legalCase.expanded_headline}</p>`;   
+            }
+            if(ifAdditionalNUll != null){
+                content+=`<p>${legalCase.additional_content}</p>`;   
+            }
             caseBox.classList.add('legalCaseBox');
-
             caseBox.innerHTML = `
                 <h3>${legalCase.title}</h3>
-                <p>${legalCase.expanded_headline}</p>
-                <p>${legalCase.additional_content}</p>
+                <p>${content}<p>
             `;
 
             legalCasesContainer.appendChild(caseBox);
