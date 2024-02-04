@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Find a Lawyer</title>
+</head>
+<style>
+    .lawyer-class {
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 60px;;
+    }
+    .lawyer-icon{
+        height:200px;
+        align-items: center;
+    }
+    .star{
+        height: 15px;
+    }
+</style>
+<body>
+    <div id="lawyer-container">
+      
+    </div>
+    <script>
+        fetch('lawyer_data/Criminal.json')
+        .then(response => response.json())
+        .then(data => {
+            const lawyerdiv = document.getElementById('lawyer-container');
+            let lawyerdetails;
+            data.forEach(lawyer => {
+                const lawyerdetails = document.createElement('div');
+                lawyerdetails.classList.add('lawyer-class');
+                lawyerdetails.innerHTML =`<div class=lawyer-image> 
+                <img src = "lawyerIcons/lawyerProfile.png" class="lawyer-icon"></div>`+
+                `<div class=lawyer-profile><h2>${lawyer.name}</h2>`+
+                `<img src = "lawyerIcons/star.png" class="star">`+
+                `<p>${lawyer.address} ${lawyer.street}</p>`+
+                `<p>${lawyer.city}</p>`+
+                `<p>Experience : ${lawyer.experience}</p>`+
+                `Email: ${lawyer.email}</p>`+
+                `Phone: ${lawyer.phone}</p></div>`;
+
+                lawyerdiv.append(lawyerdetails);
+            })   
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
