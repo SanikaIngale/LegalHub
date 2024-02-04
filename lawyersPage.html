@@ -7,26 +7,101 @@
 </head>
 <style>
     .lawyer-class {
-    border: 1px solid #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
     padding: 10px;
     display: flex;
-    gap: 60px;;
+    gap: 60px;
+    align-items: center;
     }
     .lawyer-icon{
-        height:200px;
-        align-items: center;
+        height:150px;  
     }
     .star{
         height: 15px;
     }
+    .lawyer-contact{
+        margin-left: auto;
+        margin-right: 30px;
+        justify-content: center;
+        /* align-items: center; */
+    }
+    .lawyer-email, .lawyer-phone{
+        background-color: #e6e6e6;
+        padding: 15px;
+        border-radius: 100px;
+        text-align: center;
+        margin: 10px;
+    }
+    .appointment{
+        background-color: #e6e6e6;
+        padding:2px;;
+        text-align: center;
+        border-radius: 100px;
+        margin: 10px;
+    }
+    .sidebar {
+            width: 230px;
+            height: 100%;
+            background-color: #aac7d8;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            color: #f4f4f4;
+        }
+
+    .sidebar a {
+        padding: 15px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #333;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        background-color: #44576d;
+        color: #f4f4f4;
+    }
+
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
 </style>
 <body>
-    <div id="lawyer-container">
-      
+    <div class="sidebar">
+        <a href="lawyersPage.html?button=Criminal">Criminal Defence</a>
+        <a href="lawyersPage.html?button=Family">Family</a>
+        <a href="lawyersPage.html?button=Business">Business</a>
+        <a href="lawyersPage.html?button=Personal_Injury">Personal Injury</a>
+        <a href="lawyersPage.html?button=Employment">Employment</a>
+        <a href="lawyersPage.html?button=Real_Estate">Real Estate</a>
     </div>
+    <div class="content">
+        <div id="lawyer-container">
+            <!-- lawyer details -->
+           </div>
+    </div>
+    
     <script>
-        fetch('lawyer_data/Criminal.json')
+        const urlParams = new URLSearchParams(window.location.search);
+        const buttonClicked = urlParams.get('button');
+
+        if (buttonClicked) {
+    // Call the fetchData function with the corresponding JSON file name
+            fetchData(`${buttonClicked}.json`);
+        }
+        function fetchData(jsonFileName) {
+            fetch(`lawyer_data/`+jsonFileName)
         .then(response => response.json())
         .then(data => {
             const lawyerdiv = document.getElementById('lawyer-container');
@@ -34,20 +109,29 @@
             data.forEach(lawyer => {
                 const lawyerdetails = document.createElement('div');
                 lawyerdetails.classList.add('lawyer-class');
+                const lawyerstars = lawyer.rating;
+                let stars=``;
+                for(i = 0; i < lawyerstars; i++){
+                    stars += `<img src = "lawyerIcons/star.png" class="star">`;
+                }
                 lawyerdetails.innerHTML =`<div class=lawyer-image> 
                 <img src = "lawyerIcons/lawyerProfile.png" class="lawyer-icon"></div>`+
                 `<div class=lawyer-profile><h2>${lawyer.name}</h2>`+
-                `<img src = "lawyerIcons/star.png" class="star">`+
-                `<p>${lawyer.address} ${lawyer.street}</p>`+
-                `<p>${lawyer.city}</p>`+
-                `<p>Experience : ${lawyer.experience}</p>`+
-                `Email: ${lawyer.email}</p>`+
-                `Phone: ${lawyer.phone}</p></div>`;
+                `${stars}`+
+                `<p><b>Experience : ${lawyer.experience} years</b></p>`+
+                `<p><b>Address:</b> ${lawyer.address} , ${lawyer.street}`+
+                `<br> ${lawyer.city}</p></div>`+
+                `<div class="lawyer-contact"><div class="appointment"><p>Book an Appointment</p></div>`+
+                `<div class="lawyer-email">Email: ${lawyer.email}</div></p>`+
+                `<div class="lawyer-phone">Phone: ${lawyer.phone}</p></div></div>`;
 
                 lawyerdiv.append(lawyerdetails);
             })   
         })
         .catch(error => console.error('Error fetching data:', error));
+        }
+
+
     </script>
 </body>
 </html>
