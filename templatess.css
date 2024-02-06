@@ -1,14 +1,10 @@
-/* Reset some default styles */
+
 body {
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-}
-
-.container {
+.template-container{
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;

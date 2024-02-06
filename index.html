@@ -387,16 +387,20 @@
         
         .law-category-container {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the content horizontally */
             gap: 40px;
             margin: 30px 50px;
         }
         
         .law-category {
-            flex: 1;
+            flex: 0 0 auto; /* Allow flex items to shrink */
+            width: calc((100% - 80px) / 3); /* Calculate width for 3 columns with 40px gap */
             background-color: #e6e6e6;
             text-align: center;
-            padding: 20px;
-        
+        }
+        .law-category:hover{
+            cursor:pointer;
         }
         
         .law-category h3 {
@@ -408,10 +412,20 @@
             text-decoration: none;
             color: #333;
         }
+        .ipcHover:hover::after{
+            content: "Indian Penal Code";
+            
+        }
         
         .law-category-links:visited {
             color: #333;
         }
+        
+        .law-images {
+            height: 40px;
+            margin-top: 20px;
+        }
+        
         
         
     </style>
@@ -467,23 +481,45 @@
     <div class="select-a-law" id="select-a-law">
         <h2>Select a Law</h2>
         <div class="law-category-container">
-            <div class="law-category"><a href="lawinfoo.html?law_selected=ipc" class="law-category-links">
-                <h3 id="ipcButton">IPC</h3>
-            </a></div>
-            <div class="law-category"><a href="lawinfoo.html?law_selected=crpc" class="law-category-links">
-                <h3 id="crpcButton">CRPC</h3>
-            </a></div>
-            <div class="law-category"><a href="lawinfoo.html?law_selected=cpc" class="law-category-links">
-                <h3 id="cpcButton">CPC</h3>
-            </a></div>
-            <div class="law-category"><a href="lawinfoo.html?law_selected=ida" class="law-category-links">
-                <h3 id="idaButton">IDA</h3>
-            </a></div>
-            <div class="law-category"><a href="lawinfoo.html?law_selected=iea" class="law-category-links">
-                <h3 id="ieaButton">IEA</h3>
-            </a></div>
+            <div class="law-category ipcHover">
+                <a href="lawinfoo.html?law_selected=ipc" class="law-category-links">
+                    <img src="scales-justice_1430.png" class="law-images">
+                    <h3 id="ipcButton">IPC</h3>
+                </a>
+            </div>
+            <div class="law-category crpcHover">
+                <a href="lawinfoo.html?law_selected=crpc" class="law-category-links">
+                    <img src="scales-justice_1430.png" class="law-images">
+                    <h3 id="crpcButton">CRPC</h3>
+                </a>
+            </div>
+            <div class="law-category cpcHover">
+                <a href="lawinfoo.html?law_selected=cpc" class="law-category-links">
+                    <img src="scales-justice_1430.png" class="law-images">
+                    <h3 id="cpcButton">CPC</h3>
+                </a>
+            </div>
+            <div class="law-category idaHover">
+                <a href="lawinfoo.html?law_selected=ida" class="law-category-links">
+                    <img src="scales-justice_1430.png" class="law-images">
+                    <h3 id="idaButton">IDA</h3>
+                </a>
+            </div>
+            <div class="law-category ieaHover">
+                <a href="lawinfoo.html?law_selected=iea" class="law-category-links">
+                    <img src="scales-justice_1430.png" class="law-images">
+                    <h3 id="ieaButton">IEA</h3>
+                </a>
+            </div>
+            <div class="law-category mvaHover">
+                <a href="lawinfoo.html?law_selected=mva" class="law-category-links">
+                    <img src="scales-justice_1430.png" class="law-images">
+                    <h3 id="mvaButton">MVA</h3>
+                </a>
+            </div>
         </div>
     </div>
+    
     
     <div class="find-a-lawyer" id="find-a-lawyer">
         <h2>Find a Lawyer</h2>
@@ -633,4 +669,4 @@
     <script src="zzzlawsinfoo.js"></script>
     
     </body>
-    </html>
+</html>
