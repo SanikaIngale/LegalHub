@@ -86,10 +86,12 @@
             padding: 0.7rem 1.5rem;
             margin-left: 0.6rem;
         }
-        .welcome-content{
-            font-size:1.5em;
-            padding:10px;
+
+        .welcome-content {
+            font-size: 1.5em;
+            padding: 10px;
         }
+
         .homepage-section {
             background-color: #f0f0f0;
             /* Adjust the background color as needed */
@@ -356,64 +358,113 @@
             width: 45px;
             height: 45px;
         }
-        .find-a-lawyer{
+
+        .find-a-lawyer {
             text-align: center;
         }
-        .lawyer-type-container-1, .lawyer-type-container-2{
+
+        .lawyer-type-container-1,
+        .lawyer-type-container-2 {
             display: flex;
             gap: 40px;
             margin: 30px 50px;
         }
-        .lawyer-type{
+
+        .lawyer-type {
             flex: 1;
             background-color: #e6e6e6;
             text-align: center;
-            
+
         }
-        .lawyer-images{
+
+        .lawyer-images {
             height: 40px;
             margin-top: 20px;
         }
-        .lawyer-links{
+
+        .lawyer-links {
             text-decoration: none;
-            color:#333;
+            color: #333;
         }
-        .lawyer-links:visited{
-            color:#333;
+
+        .lawyer-links:visited {
+            color: #333;
         }
+
         .select-a-law {
             text-align: center;
         }
-        
+
         .law-category-container {
             display: flex;
             gap: 40px;
             margin: 30px 50px;
+            justify-content: center;
+            /* Center align the buttons */
         }
-        
+
         .law-category {
             flex: 1;
             background-color: #e6e6e6;
             text-align: center;
             padding: 20px;
-        
+            max-width: 150px;
+            /* Set max-width to prevent overflowing */
         }
-        
+
         .law-category h3 {
             color: #333;
             margin-bottom: 10px;
         }
-        
+
         .law-category-links {
             text-decoration: none;
             color: #333;
         }
-        
+
         .law-category-links:visited {
             color: #333;
         }
-        
-        
+
+        /* Chat button styles */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+
+
+        /* Additional styles for the chatbot icon */
+        #chatbot-img {
+            width: 90px;
+            /* Adjust the width to make the image smaller */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        /* Chat pop-up styles */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-bLbJpg3eJa2Tn94u8X0oZWt6wM7c5BGvR5zzp+E58NTrTqIowGll5uJFsEdY2HzPrC2cNSUwArfRhj/VG0Ib3Q=="
@@ -435,7 +486,7 @@
                     </li>
                     <li>
                         <a href="index.html#find-a-lawyer">Find a lawyer</a>
-                    </li>                    
+                    </li>
                     <li>
                         <a href="index.html#select-a-law">Laws</a>
                     </li>
@@ -455,7 +506,10 @@
 
     <div class="homepage-section">
         <h2>Welcome to Our Homepage</h2>
-        <p class="welcome-content">"Welcome to TheLegalHub, where legal expertise meets convenience! Dive into a trove of legal insights, browse through real-world cases, and simplify your legal work with our curated collection of essential document templates. Elevate your practice and stay ahead in the legal landscape – because knowledge is power, and we've got it all in one place just for you!"
+        <p class="welcome-content">"Welcome to TheLegalHub, where legal expertise meets convenience! Dive into a trove
+            of legal insights, browse through real-world cases, and simplify your legal work with our curated collection
+            of essential document templates. Elevate your practice and stay ahead in the legal landscape – because
+            knowledge is power, and we've got it all in one place just for you!"
         </p>
     </div>
 
@@ -468,81 +522,90 @@
         <h2>Select a Law</h2>
         <div class="law-category-container">
             <div class="law-category"><a href="lawinfoo.html?law_selected=ipc" class="law-category-links">
-                <h3 id="ipcButton">IPC</h3>
-            </a></div>
+                    <h3 id="ipcButton">IPC</h3>
+                </a></div>
             <div class="law-category"><a href="lawinfoo.html?law_selected=crpc" class="law-category-links">
-                <h3 id="crpcButton">CRPC</h3>
-            </a></div>
+                    <h3 id="crpcButton">CRPC</h3>
+                </a></div>
             <div class="law-category"><a href="lawinfoo.html?law_selected=cpc" class="law-category-links">
-                <h3 id="cpcButton">CPC</h3>
-            </a></div>
+                    <h3 id="cpcButton">CPC</h3>
+                </a></div>
             <div class="law-category"><a href="lawinfoo.html?law_selected=ida" class="law-category-links">
-                <h3 id="idaButton">IDA</h3>
-            </a></div>
+                    <h3 id="idaButton">IDA</h3>
+                </a></div>
             <div class="law-category"><a href="lawinfoo.html?law_selected=iea" class="law-category-links">
-                <h3 id="ieaButton">IEA</h3>
-            </a></div>
+                    <h3 id="ieaButton">IEA</h3>
+                </a></div>
+            <div class="law-category"><a href="lawinfoo.html?law_selected=mva" class="law-category-links">
+                    <h3 id="ieaButton">MVA</h3>
+                </a></div>
         </div>
     </div>
-    
+
     <div class="find-a-lawyer" id="find-a-lawyer">
         <h2>Find a Lawyer</h2>
         <div class="lawyer-type-container-1">
             <div class="lawyer-type"><a href="lawyersPage.html?button=Criminal" class="lawyer-links">
-                <img src="lawyerIcons/handcuffs.png" class="lawyer-images">
-                <h3>Criminal Defence</h3>
-                <ul type="none">
-                    <li>Criminal offenses</li>
-                    <li>Courtroom defense</li>
-                    <li>Criminal investigations</li>
-                </ul> </a> 
+                    <img src="lawyerIcons/handcuffs.png" class="lawyer-images">
+                    <h3>Criminal Defence</h3>
+                    <ul type="none">
+                        <li>Criminal offenses</li>
+                        <li>Courtroom defense</li>
+                        <li>Criminal investigations</li>
+                    </ul>
+                </a>
             </div>
             <div class="lawyer-type"><a href="lawyersPage.html?button=Family" class="lawyer-links">
-                <img src="lawyerIcons/family.png" class="lawyer-images">
-                <h3>Family</h3>
-                <ul type="none">
-                    <li>Divorce proceedings</li>
-                    <li>Child custody</li>
-                    <li>Alimony disputes</li>
-                </ul>   </a>
+                    <img src="lawyerIcons/family.png" class="lawyer-images">
+                    <h3>Family</h3>
+                    <ul type="none">
+                        <li>Divorce proceedings</li>
+                        <li>Child custody</li>
+                        <li>Alimony disputes</li>
+                    </ul>
+                </a>
             </div>
             <div class="lawyer-type"><a href="lawyersPage.html?button=Business" class="lawyer-links">
-                <img src="lawyerIcons/business.png" class="lawyer-images">
-                <h3>Business</h3>
-                <ul type="none">
-                    <li>Corporate legalities</li>
-                    <li>Contract negotiations</li>
-                    <li>Mergers & acquisitions</li>
-                </ul>  </a>
+                    <img src="lawyerIcons/business.png" class="lawyer-images">
+                    <h3>Business</h3>
+                    <ul type="none">
+                        <li>Corporate legalities</li>
+                        <li>Contract negotiations</li>
+                        <li>Mergers & acquisitions</li>
+                    </ul>
+                </a>
             </div>
         </div>
         <div class="lawyer-type-container-2">
             <div class="lawyer-type"><a href="lawyersPage.html?button=Personal_Injury" class="lawyer-links">
-                <img src="lawyerIcons/injury.png" class="lawyer-images">
-                <h3>Personal Injury</h3>
-                <ul type="none">
-                    <li>Accident claims</li>
-                    <li>Medical malpractice</li>
-                    <li>Compensation lawsuits</li>
-                </ul>  </a>
+                    <img src="lawyerIcons/injury.png" class="lawyer-images">
+                    <h3>Personal Injury</h3>
+                    <ul type="none">
+                        <li>Accident claims</li>
+                        <li>Medical malpractice</li>
+                        <li>Compensation lawsuits</li>
+                    </ul>
+                </a>
             </div>
             <div class="lawyer-type"><a href="lawyersPage.html?button=Employment" class="lawyer-links">
-                <img src="lawyerIcons/employment.png" class="lawyer-images">
-                <h3>Employment</h3>
-                <ul type="none">
-                    <li>Workplace disputes</li>
-                    <li>Employment contracts</li>
-                    <li>Labor law compliance</li>
-                </ul>   </a>
+                    <img src="lawyerIcons/employment.png" class="lawyer-images">
+                    <h3>Employment</h3>
+                    <ul type="none">
+                        <li>Workplace disputes</li>
+                        <li>Employment contracts</li>
+                        <li>Labor law compliance</li>
+                    </ul>
+                </a>
             </div>
             <div class="lawyer-type"><a href="lawyersPage.html?button=Real_Estate" class="lawyer-links">
-                <img src="lawyerIcons/realEstate.png" class="lawyer-images">
-                <h3>Real Estate</h3>
-                <ul type="none">
-                    <li>Property transactions</li>
-                    <li>Land use disputes</li>
-                    <li>Purchase agreements</li>
-                </ul>  </a>
+                    <img src="lawyerIcons/realEstate.png" class="lawyer-images">
+                    <h3>Real Estate</h3>
+                    <ul type="none">
+                        <li>Property transactions</li>
+                        <li>Land use disputes</li>
+                        <li>Purchase agreements</li>
+                    </ul>
+                </a>
             </div>
         </div>
     </div>
@@ -626,11 +689,34 @@
             </div>
         </div>
     </footer>
+    <!-- Chatbot image/button -->
+    <img id="chatbot-img" src="chatbot.png" alt="Chat Icon" class="chat-button" onclick="toggleChatPopup()">
+
+
+    <!-- Chat pop-up -->
+    <div class="chat-popup" id="chatPopup">
+        <button class="close-button" onclick="toggleChatPopup()">Close</button>
+        <!-- Add your chatbot UI here -->
+        <p>This is the chatbot UI content.</p>
+    </div>
+
+    <script>
+        // Function to toggle the display of the chat pop-up
+        function toggleChatPopup() {
+            var chatPopup = document.getElementById("chatPopup");
+            if (chatPopup.style.display === "block") {
+                chatPopup.style.display = "none";
+            } else {
+                chatPopup.style.display = "block";
+            }
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="zzzlawsinfoo.js"></script>
-    
-    </body>
-    </html>
+
+</body>
+
+</html>
