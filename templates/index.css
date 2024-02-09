@@ -462,6 +462,10 @@ nav .container {
     color: #333;
     margin-bottom: 10px;
 }
+.law-category h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
 
 .law-category-links {
     text-decoration: none;
@@ -523,4 +527,10 @@ nav .container {
     top: 5px;
     right: 10px;
     cursor: pointer;
+}
+.lawyer-type ul{
+    margin-bottom:10px;
+}
+.lawyer-type h3{
+    margin-bottom: 10px;
 }

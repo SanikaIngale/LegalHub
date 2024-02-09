@@ -18,10 +18,12 @@
             width: 650px;
             max-height: 250px;
             margin:auto;
-            margin-top: 20px;;
+            margin-top: 20px;
+           
         }
         
         .chatbody{
+            position:relative;
             height: 75vh;
             background-color: white;
             text-align: center;
@@ -46,11 +48,24 @@
             height: 30px;
             width: 300px;
         }
+        .back-arrow{
+            position:absolute;
+            top:10px;
+            left:10px;
+        }
         
     </style>
 </head>
 <body>
+    
     <div class="chatbody">
+        <a href="../templates/index.html" class="back-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M20 11H7.414l4.293-4.293a1 1 0 1 0-1.414-1.414l-6 6a1 1 0 0 0 0 1.414l6 6a1 1 0 0 0 1.414-1.414L7.414 13H20a1 1 0 0 0 0-2z">
+                </path>
+            </svg>
+        </a>
     <h1>Meet Your Virtual Legal Assistant</h1>
     <h2>LegalGenie</h2>
     <form id="myForm">
