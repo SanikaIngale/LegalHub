@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+genai.configure(api_key="AIzaSyBd385XupzEu4oYXmWC2aZxBGj5pja4kHI")
 model = genai.GenerativeModel("gemini-pro")
 
 @app.route('/')
@@ -26,7 +26,8 @@ def process_input():
     return jsonify({'response': response_text})
 
 def get_query(query):
-    prompt = "You are now an AI bot integrated into a law website. Do not make the headings bold. You have to answer the following question as an Indian Lawyer. So you are my lawyer.{}".format(query)
+    print(query)
+    prompt = "You are now an AI bot integrated into a law website. You have to answer the following question as an Indian Lawyer. So you are my lawyer.{}".format(query)
     response = model.generate_content(prompt)
     return response.text
 

@@ -92,24 +92,113 @@
             padding: 10px;
         }
 
-        .homepage-section {
-            background-color: #f0f0f0;
-            /* Adjust the background color as needed */
-            padding: 50px 0;
-            /* Add padding as needed */
+        .header-content {
+            padding: 20px;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            /* Center content */
         }
 
-        .mission-section {
-            background-color: #e6e6e6;
-            /* Adjust the background color as needed */
-            padding: 50px 0;
-            /* Add padding as needed */
-            text-align: center;
-            /* Center content */
+        .container.grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
         }
 
+        .column-1,
+        .column-2 {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .container.grid-2 {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        .img-element {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .card-wrap {
+            position: relative;
+            margin: 1.7rem 0.8rem;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 390px;
+            min-height: 120px;
+            background-color: var(--light-three);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 2rem;
+            overflow: hidden;
+            transition: 0.3s;
+            /* Add background color and border */
+            background-color: #f2f2f2;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .card:before {
+            content: attr(data-card);
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 6rem;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--main-color);
+            opacity: 0.025;
+        }
+
+        .card:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 0px;
+            bottom: 0;
+            left: 0;
+            background-color: #FFF;
+            transition: 0.3s;
+        }
+
+        .card-wrap:hover .card {
+            transform: translateY(-15px);
+        }
+
+        .card-wrap:hover .card:after {
+            height: 8px;
+        }
+
+        .card .title-sm {
+            line-height: 0.8;
+        }
+
+        .card .text {
+            font-size: 1.15rem;
+            margin: 1.8rem 0;
+        }
 
 
         /* Additional styles */
@@ -201,6 +290,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+        .copyright {
+            margin: 0;
         }
 
         .copyright .text {
@@ -303,12 +396,11 @@
 
         /* Additional styles */
         .footer {
-            padding: 4rem 0;
+            padding: 2rem 0;
+            width: 100vw;
+            height: 20vh;
         }
 
-        .footer-links a {
-            font-size: 1rem;
-        }
 
         .footer .title-sm {
             margin-bottom: 0.5rem;
@@ -330,6 +422,11 @@
 
         .copyright .text {
             font-size: 0.95rem;
+        }
+
+        .grid-4 {
+            margin-right: 0;
+            padding-right: 0;
         }
 
         .followus h3 {
@@ -391,25 +488,27 @@
             color: #333;
         }
 
+
         .select-a-law {
             text-align: center;
         }
 
         .law-category-container {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Center the content horizontally */
             gap: 40px;
             margin: 30px 50px;
-            justify-content: center;
-            /* Center align the buttons */
         }
 
         .law-category {
-            flex: 1;
+            flex: 0 0 auto;
+            /* Allow flex items to shrink */
+            width: calc((100% - 80px) / 3);
+            /* Calculate width for 3 columns with 40px gap */
             background-color: #e6e6e6;
             text-align: center;
-            padding: 20px;
-            max-width: 150px;
-            /* Set max-width to prevent overflowing */
         }
 
         .law-category h3 {
@@ -424,6 +523,23 @@
 
         .law-category-links:visited {
             color: #333;
+        }
+
+        .law-images {
+            height: 40px;
+            margin-top: 20px;
+        }
+
+        .fullform {
+            margin-top: 0;
+        }
+
+        .footer-container {
+            display: flex;
+        }
+
+        .text-find-lawyer {
+            text-align: center;
         }
 
         /* Chat button styles */
@@ -477,12 +593,12 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <img src="logo1.png" alt="Logo" />
+                <img src="../logo1.png" alt="Logo" />
             </div>
             <div class="links">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="templates\index.html">Home</a>
                     </li>
                     <li>
                         <a href="index.html#find-a-lawyer">Find a lawyer</a>
@@ -491,234 +607,284 @@
                         <a href="index.html#select-a-law">Laws</a>
                     </li>
                     <li>
-                        <a href="templatess.html">Templates</a>
+                        <a href="../templatess.html">Templates</a>
                     </li>
                     <li>
-                        <a href="legalCases.html">Previous Cases</a>
+                        <a href="../legalCases.html">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="signup.html" class="active">Register</a>
+                        <a href="../signup.html" class="active">Register</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="homepage-section">
-        <h2>Welcome to Our Homepage</h2>
-        <p class="welcome-content">"Welcome to TheLegalHub, where legal expertise meets convenience! Dive into a trove
-            of legal insights, browse through real-world cases, and simplify your legal work with our curated collection
-            of essential document templates. Elevate your practice and stay ahead in the legal landscape – because
-            knowledge is power, and we've got it all in one place just for you!"
-        </p>
-    </div>
 
-    <div class="mission-section">
-        <h2>Our Mission</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec nisi ut odio ultricies fermentum.</p>
-        <!-- Add your mission content here -->
+    <div class="header-content">
+        <div class="container grid-2">
+            <div class="column-1">
+                <h1 class="header-title">TheLegalHub</h1>
+                <p class="text">
+                    Welcome to TheLegalHub, where legal expertise meets convenience! Dive into a trove
+                    of legal insights, browse through real-world cases, and simplify your legal work with our curated
+                    collection
+                    of essential document templates. Elevate your practice and stay ahead in the legal landscape –
+                    because
+                    knowledge is power, and we've got it all in one place just for you!"
+
+                </p>
+            </div>
+
+            <div class="column-2 image">
+                <img src="../homepage1.png" class="img-element z-index" alt="" />
+            </div>
+        </div>
     </div>
+    </header>
+    <section class="mission-vision section" id="mission-vision">
+        <div class="container">
+            <div class="section-header">
+
+            </div>
+
+            <div class="cards">
+                <div class="card-wrap">
+
+                    <div class="card" data-card="">
+                        <div class="card-content z-index">
+
+                            <h3 class="title-sm">Our Mission</h3>
+                            <p class="text">
+
+                                Our mission is to democratize the law, empowering individuals with access to
+                                high-quality legal resources regardless of background. We aim to make the law
+                                understandable and accessible to all, fostering a society where justice is a fundamental
+                                right. By providing a comprehensive platform covering various legal domains, we equip
+                                users to navigate the legal landscape confidently. Through dedication to excellence and
+                                innovation, we cultivate a community of lifelong learners advocating for justice.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-wrap">
+                    <div class="card" data-card="">
+                        <div class="card-content z-index">
+
+                            <h3 class="title-sm">Our Vision</h3>
+                            <p class="text">
+                                Our vision is to create a global hub of legal knowledge and resources, transcending
+                                barriers of geography and socio-economics. We aim to be the premier destination for
+                                legal education, fostering continuous learning and collaboration among aspiring lawyers,
+                                seasoned practitioners, and curious minds. Through our commitment to sustainability and
+                                social responsibility, we strive to catalyze positive change, making quality education a
+                                reality for all. Together, we believe in shaping a brighter tomorrow, where the pursuit
+                                of justice leads to a more equitable and enlightened society.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="select-a-law" id="select-a-law">
         <h2>Select a Law</h2>
         <div class="law-category-container">
-            <div class="law-category"><a href="../lawinfoo.html?law_selected=ipc" class="law-category-links">
+            <div class="law-category">
+                <a href="../lawinfoo.html?law_selected=ipc" class="law-category-links">
+                    <img src="../scales-justice_1430.png" class="law-images">
                     <h3 id="ipcButton">IPC</h3>
-                </a></div>
-            <div class="law-category"><a href="../lawinfoo.html?law_selected=crpc" class="law-category-links">
+                    <h4 class="fullform">Indian Penal Code</h4>
+                </a>
+            </div>
+            <div class="law-category">
+                <a href="../lawinfoo.html?law_selected=crpc" class="law-category-links">
+                    <img src="../scales-justice_1430.png" class="law-images">
                     <h3 id="crpcButton">CRPC</h3>
-                </a></div>
-            <div class="law-category"><a href="../lawinfoo.html?law_selected=cpc" class="law-category-links">
+                    <h4 class="fullform">Code of Criminal Procedure</h4>
+                </a>
+            </div>
+            <div class="law-category">
+                <a href="../lawinfoo.html?law_selected=cpc" class="law-category-links">
+                    <img src="../scales-justice_1430.png" class="law-images">
                     <h3 id="cpcButton">CPC</h3>
-                </a></div>
-            <div class="law-category"><a href="../lawinfoo.html?law_selected=ida" class="law-category-links">
+                    <h4 class="fullform">Code of Civil Procedure</h4>
+                </a>
+            </div>
+            <div class="law-category">
+                <a href="../lawinfoo.html?law_selected=ida" class="law-category-links">
+                    <img src="../scales-justice_1430.png" class="law-images">
                     <h3 id="idaButton">IDA</h3>
-                </a></div>
-            <div class="law-category"><a href="../lawinfoo.html?law_selected=iea" class="law-category-links">
+                    <h4 class="fullform">Indian Defence Act</h4>
+                </a>
+            </div>
+            <div class="law-category">
+                <a href="../lawinfoo.html?law_selected=iea" class="law-category-links">
+                    <img src="../scales-justice_1430.png" class="law-images">
                     <h3 id="ieaButton">IEA</h3>
-                </a></div>
-            <div class="law-category"><a href="../lawinfoo.html?law_selected=mva" class="law-category-links">
-                    <h3 id="ieaButton">MVA</h3>
-                </a></div>
-        </div>
-    </div>
-
-    <div class="find-a-lawyer" id="find-a-lawyer">
-        <h2>Find a Lawyer</h2>
-        <div class="lawyer-type-container-1">
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Criminal" class="lawyer-links">
-                    <img src="../lawyerIcons/handcuffs.png" class="lawyer-images">
-                    <h3>Criminal Defence</h3>
-                    <ul type="none">
-                        <li>Criminal offenses</li>
-                        <li>Courtroom defense</li>
-                        <li>Criminal investigations</li>
-                    </ul>
+                    <h4 class="fullform">Indian Evidence Act</h4>
                 </a>
             </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Family" class="lawyer-links">
-                    <img src="../lawyerIcons/family.png" class="lawyer-images">
-                    <h3>Family</h3>
-                    <ul type="none">
-                        <li>Divorce proceedings</li>
-                        <li>Child custody</li>
-                        <li>Alimony disputes</li>
-                    </ul>
-                </a>
-            </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Business" class="lawyer-links">
-                    <img src="../lawyerIcons/business.png" class="lawyer-images">
-                    <h3>Business</h3>
-                    <ul type="none">
-                        <li>Corporate legalities</li>
-                        <li>Contract negotiations</li>
-                        <li>Mergers & acquisitions</li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="lawyer-type-container-2">
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Personal_Injury" class="lawyer-links">
-                    <img src="../lawyerIcons/injury.png" class="lawyer-images">
-                    <h3>Personal Injury</h3>
-                    <ul type="none">
-                        <li>Accident claims</li>
-                        <li>Medical malpractice</li>
-                        <li>Compensation lawsuits</li>
-                    </ul>
-                </a>
-            </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Employment" class="lawyer-links">
-                    <img src="../lawyerIcons/employment.png" class="lawyer-images">
-                    <h3>Employment</h3>
-                    <ul type="none">
-                        <li>Workplace disputes</li>
-                        <li>Employment contracts</li>
-                        <li>Labor law compliance</li>
-                    </ul>
-                </a>
-            </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Real_Estate" class="lawyer-links">
-                    <img src="../lawyerIcons/realEstate.png" class="lawyer-images">
-                    <h3>Real Estate</h3>
-                    <ul type="none">
-                        <li>Property transactions</li>
-                        <li>Land use disputes</li>
-                        <li>Purchase agreements</li>
-                    </ul>
+            <div class="law-category">
+                <a href="../lawinfoo.html?law_selected=mva" class="law-category-links">
+                    <img src="../scales-justice_1430.png" class="law-images">
+                    <h3 id="mvaButton">MVA</h3>
+                    <h4 class="fullform">Motor Vehicles Act</h4>
                 </a>
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="grid-4">
-                <div class="grid-4-col footer-aboutus">
-                    <h3 class="title-sm">Our Mission</h3>
-                    <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec nisi ut odio ultricies
-                        fermentum.
-                    </p>
-                </div>
-                <div class="grid-4-col footer-links">
-                    <h3 class="title-sm">Links</h3>
-                    <ul>
-                        <li>
-                            <a href="#laws">Laws</a>
-                        </li>
-                        <li>
-                            <a href="#templates">Templates</a>
-                        </li>
-                        <li>
-                            <a href="#previouscases">Previous Cases</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="grid-4-col footer-links">
-                    <h3 class="title-sm">Need help!</h3>
-                    <ul>
-                        <li>
-                            <a href="login.html">Login</a>
-                        </li>
-                        <li>
-                            <a href="signup.html">Sign Up</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="grid-4-col footer-newstletter">
-                    <h3 class="title-sm">Subscribe</h3>
-                    <p class="text">
-                        Get updates.
-                    </p>
-                    <div class="footer-input-wrap">
-                        <input type="email" class="footer-input" placeholder="Email" />
-                        <a href="#" class="input-arrow">
-                            <i class="fas fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-footer">
-                <div class="copyright">
-                    <p class="text">
-                        Copyright&copy;2020 All rights reserved
-                    </p>
-                </div>
-                <div class="followus-wrap">
-                    <div class="followus">
-                        <h3>Follow Us</h3>
-                        <span class="footer-line"></span>
-                        <div class="social-media">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
+    
+                <div class="find-a-lawyer" id="find-a-lawyer">
+                    <h2 class="text-find-lawyer">Find a Lawyer</h2>
+                    <div class="lawyer-type-container-1">
+                        <div class="lawyer-type"><a href="../lawyersPage.html?button=Criminal" class="lawyer-links">
+                                <img src="../lawyerIcons/handcuffs.png" class="lawyer-images">
+                                <h3>Criminal Defence</h3>
+                                <ul type="none">
+                                    <li>Criminal offenses</li>
+                                    <li>Courtroom defense</li>
+                                    <li>Criminal investigations</li>
+                                </ul>
                             </a>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="lawyer-type"><a href="../lawyersPage.html?button=Family" class="lawyer-links">
+                                <img src="../lawyerIcons/family.png" class="lawyer-images">
+                                <h3>Family</h3>
+                                <ul type="none">
+                                    <li>Divorce proceedings</li>
+                                    <li>Child custody</li>
+                                    <li>Alimony disputes</li>
+                                </ul>
                             </a>
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="lawyer-type"><a href="../lawyersPage.html?button=Business" class="lawyer-links">
+                                <img src="../lawyerIcons/business.png" class="lawyer-images">
+                                <h3>Business</h3>
+                                <ul type="none">
+                                    <li>Corporate legalities</li>
+                                    <li>Contract negotiations</li>
+                                    <li>Mergers & acquisitions</li>
+                                </ul>
                             </a>
                         </div>
                     </div>
-                    <div class="back-btn-wrap">
-                        <a href="#" class="back-btn">
-                            <i class="fas fa-chevron-up"></i>
-                        </a>
+                    <div class="lawyer-type-container-2">
+                        <div class="lawyer-type"><a href="../lawyersPage.html?button=Personal_Injury"
+                                class="lawyer-links">
+                                <img src="../lawyerIcons/injury.png" class="lawyer-images">
+                                <h3>Personal Injury</h3>
+                                <ul type="none">
+                                    <li>Accident claims</li>
+                                    <li>Medical malpractice</li>
+                                    <li>Compensation lawsuits</li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="lawyer-type"><a href="../lawyersPage.html?button=Employment" class="lawyer-links">
+                                <img src="../lawyerIcons/employment.png" class="lawyer-images">
+                                <h3>Employment</h3>
+                                <ul type="none">
+                                    <li>Workplace disputes</li>
+                                    <li>Employment contracts</li>
+                                    <li>Labor law compliance</li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="lawyer-type"><a href="../lawyersPage.html?button=Real_Estate" class="lawyer-links">
+                                <img src="../lawyerIcons/realEstate.png" class="lawyer-images">
+                                <h3>Real Estate</h3>
+                                <ul type="none">
+                                    <li>Property transactions</li>
+                                    <li>Land use disputes</li>
+                                    <li>Purchase agreements</li>
+                                </ul>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Chatbot image/button -->
-    <img id="chatbot-img" src="../chatbot.png" alt="Chat Icon" class="chat-button" onclick="redirectToPage2()">
+
+                <footer class="footer">
+                    <div class="footer-container">
+                        <div class="grid-4-col footer-newstletter">
+                            <h3 class="title-sm">Subscribe</h3>
+                            <p class="text">
+                                Get updates.
+                            </p>
+                            <div class="footer-input-wrap">
+                                <input type="email" class="footer-input" placeholder="Email" />
+                                <a href="#" class="input-arrow">
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bottom-footer">
+                            <div class="copyright">
+                                <p class="text">
+                                    Copyright&copy;2020 All rights reserved
+                                </p>
+                            </div>
+                        </div>
+                        <div class="followus-wrap">
+                            <div class="followus">
+                                <h3>Follow Us</h3>
+                                <span class="footer-line"></span>
+                                <div class="social-media">
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="back-btn-wrap">
+                                <a href="#" class="back-btn">
+                                    <i class="fas fa-chevron-up"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </footer>
+                <!-- Chatbot image/button -->
+                <img id="chatbot-img" src="../chatbot.png" alt="Chat Icon" class="chat-button"
+                    onclick="redirectToPage2()">
 
 
-    <!-- Chat pop-up -->
-    <!-- <div class="chat-popup" id="chatPopup">
+                <!-- Chat pop-up -->
+                <!-- <div class="chat-popup" id="chatPopup">
         <button class="close-button" onclick="toggleChatPopup()">Close</button> -->
-        <!-- Add your chatbot UI here -->
-        <!-- <p>This is the chatbot UI content.</p>
+                <!-- Add your chatbot UI here -->
+                <!-- <p>This is the chatbot UI content.</p>
     </div>  -->
 
-    <script>
-        // Function to toggle the display of the chat pop-up
-        // function toggleChatPopup() {
-        //     var chatPopup = document.getElementById("chatPopup");
-        //     if (chatPopup.style.display === "block") {
-        //         chatPopup.style.display = "none";
-        //     } else {
-        //         chatPopup.style.display = "block";
-        //     }
-        // }
-        function redirectToPage2() {
-            window.location.href = "/templates/page2.html";
-        }
-    </script>
+                <script>
+                    // Function to toggle the display of the chat pop-up
+                    // function toggleChatPopup() {
+                    //     var chatPopup = document.getElementById("chatPopup");
+                    //     if (chatPopup.style.display === "block") {
+                    //         chatPopup.style.display = "none";
+                    //     } else {
+                    //         chatPopup.style.display = "block";
+                    //     }
+                    // }
+                    function redirectToPage2() {
+                        window.location.href = "page2.html";
+                    }
+                </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/isotope.pkgd.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../lawsinfoo.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="./js/isotope.pkgd.min.js"></script>
+                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                <script src="../lawsinfoo.js"></script>
 
 </body>
 
