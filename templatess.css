@@ -91,10 +91,3 @@ body {
 .close-button:hover {
   color: #000;
 }
-
-footer {
-  background-color: #DFEBF6; /* Updated background color */
-  color: #44576D; /* Updated text color */
-  text-align: center;
-  padding: 20px 0;
-}
