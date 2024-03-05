@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../static/css/index.css">
 
     <style>
            </style>
@@ -23,27 +23,27 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <img src="../logo1.png" alt="Logo" />
+                <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" />
             </div>
             <div class="links">
                 <ul>
                     <li>
-                        <a href="templates\index.html">Home</a>
+                        <a href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li>
-                        <a href="index.html#find-a-lawyer">Find a lawyer</a>
+                        <a href="{{ url_for('index') }}#find-a-lawyer">Find a lawyer</a>
                     </li>
                     <li>
-                        <a href="index.html#select-a-law">Laws</a>
+                        <a href="{{ url_for('index') }}#select-a-law">Laws</a>
                     </li>
                     <li>
-                        <a href="../templatess.html">Templates</a>
+                        <a href="{{ url_for('templatess')}}">Templates</a>
                     </li>
                     <li>
-                        <a href="../legalCases.html">Previous Cases</a>
+                        <a href="{{ url_for('legalCases')}}">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="../signup.html" class="active">Register</a>
+                        <a href="{{ url_for('signup')}}" class="active">Register</a>
                     </li>
                 </ul>
             </div>
@@ -67,7 +67,7 @@
             </div>
 
             <div class="column-2 image">
-                <img src="../homepage1.png" class="img-element z-index" alt="" />
+                <img src="{{ url_for('static', filename='homepage1.png') }}" class="img-element z-index" alt="" />
             </div>
         </div>
     </div>
@@ -143,43 +143,43 @@
         <h2>Select a Law</h2>
         <div class="law-category-container">
             <div class="law-category">
-                <a href="../lawinfoo.html?law_selected=ipc" class="law-category-links">
-                    <img src="../scales-justice_1430.png" class="law-images">
+                <a href="{{ url_for('lawinfoo', law_selected='ipc') }}" class="law-category-links">
+                    <img src="{{ url_for('static', filename='scales-justice_1430.png') }}" class="law-images">
                     <h3 id="ipcButton">IPC</h3>
                     <h4 class="fullform">Indian Penal Code</h4>
                 </a>
             </div>
             <div class="law-category">
-                <a href="../lawinfoo.html?law_selected=crpc" class="law-category-links">
-                    <img src="../scales-justice_1430.png" class="law-images">
+                <a href="{{ url_for('lawinfoo', law_selected='crpc') }}" class="law-category-links">
+                    <img src="{{ url_for('static', filename='scales-justice_1430.png') }}" class="law-images">
                     <h3 id="crpcButton">CRPC</h3>
                     <h4 class="fullform">Code of Criminal Procedure</h4>
                 </a>
             </div>
             <div class="law-category">
-                <a href="../lawinfoo.html?law_selected=cpc" class="law-category-links">
-                    <img src="../scales-justice_1430.png" class="law-images">
+                <a href="{{ url_for('lawinfoo', law_selected='cpc') }}" class="law-category-links">
+                    <img src="{{ url_for('static', filename='scales-justice_1430.png') }}" class="law-images">
                     <h3 id="cpcButton">CPC</h3>
                     <h4 class="fullform">Code of Civil Procedure</h4>
                 </a>
             </div>
             <div class="law-category">
-                <a href="../lawinfoo.html?law_selected=ida" class="law-category-links">
-                    <img src="../scales-justice_1430.png" class="law-images">
+                <a href="{{ url_for('lawinfoo', law_selected='ida') }}" class="law-category-links">
+                    <img src="{{ url_for('static', filename='scales-justice_1430.png') }}" class="law-images">
                     <h3 id="idaButton">IDA</h3>
                     <h4 class="fullform">Indian Defence Act</h4>
                 </a>
             </div>
             <div class="law-category">
-                <a href="../lawinfoo.html?law_selected=iea" class="law-category-links">
-                    <img src="../scales-justice_1430.png" class="law-images">
+                <a href="{{ url_for('lawinfoo', law_selected='iea') }}" class="law-category-links">
+                    <img src="{{ url_for('static', filename='scales-justice_1430.png') }}" class="law-images">
                     <h3 id="ieaButton">IEA</h3>
                     <h4 class="fullform">Indian Evidence Act</h4>
                 </a>
             </div>
             <div class="law-category">
-                <a href="../lawinfoo.html?law_selected=mva" class="law-category-links">
-                    <img src="../scales-justice_1430.png" class="law-images">
+                <a href="{{ url_for('lawinfoo', law_selected='mva') }}" class="law-category-links">
+                    <img src="{{ url_for('static', filename='scales-justice_1430.png') }}" class="law-images">
                     <h3 id="mvaButton">MVA</h3>
                     <h4 class="fullform">Motor Vehicles Act</h4>
                 </a>
@@ -189,8 +189,8 @@
     <div class="find-a-lawyer" id="find-a-lawyer">
         <h2 class="text-find-lawyer">Find a Lawyer</h2>
         <div class="lawyer-type-container-1">
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Criminal" class="lawyer-links">
-                    <img src="../lawyerIcons/handcuffs.png" class="lawyer-images">
+            <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Criminal') }}" class="lawyer-links">
+                    <img src="{{ url_for('static', filename='lawyerIcons/handcuffs.png') }}" class="lawyer-images">
                     <h3>Criminal Defence</h3>
                     <ul type="none">
                         <li>Criminal offenses</li>
@@ -199,8 +199,8 @@
                     </ul>
                 </a>
             </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Family" class="lawyer-links">
-                    <img src="../lawyerIcons/family.png" class="lawyer-images">
+            <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Family') }}" class="lawyer-links">
+                    <img src="{{ url_for('static', filename='lawyerIcons/family.png') }}" class="lawyer-images">
                     <h3>Family</h3>
                     <ul type="none">
                         <li>Divorce proceedings</li>
@@ -209,8 +209,8 @@
                     </ul>
                 </a>
             </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Business" class="lawyer-links">
-                    <img src="../lawyerIcons/business.png" class="lawyer-images">
+            <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Business') }}" class="lawyer-links">
+                    <img src="{{ url_for('static', filename='lawyerIcons/business.png') }}" class="lawyer-images">
                     <h3>Business</h3>
                     <ul type="none">
                         <li>Corporate legalities</li>
@@ -221,9 +221,9 @@
             </div>
         </div>
         <div class="lawyer-type-container-2">
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Personal_Injury"
+            <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Personal_Injury') }}"
                     class="lawyer-links">
-                    <img src="../lawyerIcons/injury.png" class="lawyer-images">
+                    <img src="{{ url_for('static', filename='lawyerIcons/injury.png') }}" class="lawyer-images">
                     <h3>Personal Injury</h3>
                     <ul type="none">
                         <li>Accident claims</li>
@@ -232,8 +232,8 @@
                     </ul>
                 </a>
             </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Employment" class="lawyer-links">
-                    <img src="../lawyerIcons/employment.png" class="lawyer-images">
+            <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Employment') }}" class="lawyer-links">
+                    <img src="{{ url_for('static', filename='lawyerIcons/employment.png') }}" class="lawyer-images">
                     <h3>Employment</h3>
                     <ul type="none">
                         <li>Workplace disputes</li>
@@ -242,8 +242,8 @@
                     </ul>
                 </a>
             </div>
-            <div class="lawyer-type"><a href="../lawyersPage.html?button=Real_Estate" class="lawyer-links">
-                    <img src="../lawyerIcons/realEstate.png" class="lawyer-images">
+            <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Real_Estate') }}" class="lawyer-links">
+                    <img src="{{ url_for('static', filename='lawyerIcons/realEstate.png') }}" class="lawyer-images">
                     <h3>Real Estate</h3>
                     <ul type="none">
                         <li>Property transactions</li>
@@ -302,7 +302,7 @@
         </div> 
     </footer>    
     <!-- Chatbot image/button -->
-    <img id="chatbot-img" src="../chatbot.png" alt="Chat Icon" class="chat-button"
+    <img id="chatbot-img" src="{{ url_for('static', filename='chatbot.png') }}" alt="Chat Icon" class="chat-button"
         onclick="redirectToPage2()">
 
 
@@ -324,15 +324,15 @@
         //     }
         // }
         function redirectToPage2() {
-            window.location.href = "page2.html";
+            window.location.href = "{{ url_for('page2') }}";
         }
     </script>
-    <script src="navbar.js"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../lawsinfoo.js"></script>
+    <script src="{{ url_for('static', filename='js/lawinfoo.js') }}"></script>
 
 </body>
 

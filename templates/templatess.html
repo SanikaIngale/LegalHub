@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Templates</title>
-    <link rel="stylesheet" href="navbar.css"/>
+    <link rel="stylesheet" href="../static/css/navbar.css"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
@@ -17,8 +17,8 @@
       integrity="sha512-bLbJpg3eJa2Tn94u8X0oZWt6wM7c5BGvR5zzp+E58NTrTqIowGll5uJFsEdY2HzPrC2cNSUwArfRhj/VG0Ib3Q=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="templatess.css" />
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../static/css/templatess.css" />
+    <link rel="stylesheet" href="../static/css/footer.css">
     
     <style>
         /* Additional styling for the document preview */
@@ -75,22 +75,22 @@
             <div class="links">
                 <ul>
                     <li>
-                        <a href="templates/index.html">Home</a>
+                        <a href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li>
-                        <a href="templates/index.html#find-a-lawyer">Find a lawyer</a>
+                        <a href="{{ url_for('index') }}#find-a-lawyer">Find a lawyer</a>
                     </li>                    
                     <li>
-                        <a href="templates/index.html#select-a-law">Laws</a>
+                        <a href="{{ url_for('index') }}#select-a-law">Laws</a>
                     </li>
                     <li>
-                        <a href="templatess.html">Templates</a>
+                        <a href="{{ url_for('templatess') }}">Templates</a>
                     </li>
                     <li>
-                        <a href="legalCases.html">Previous Cases</a>
+                        <a href="{{ url_for('legalCases') }}">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="signup.html" class="active">Register</a>
+                        <a href="{{ url_for('signup') }}" class="active">Register</a>
                     </li>
                 </ul>
             </div>
@@ -102,22 +102,22 @@
             <div class="template">
                 <h2>POWER OF ATTORNEY</h2>
                 <p>Print this document to empower someone you trust to make decisions for you in areas like finances, property, and healthcare, with customizable limits and duration.</p>
-                <button onclick="showDocument('POWER_OF_ATTORNEY.pdf')">View Document</button>
+                <button onclick="viewDocument('POWER_OF_ATTORNEY.pdf')">View Document</button>
             </div>
             <div class="template">
                 <h2>LEAVE AND LICENSE AGREEMENT</h2>
                 <p>Print this Leave and License Agreement to formalize the permission granted to someone to use your property for a specified period, outlining terms and conditions for the arrangement.</p>
-                <button onclick="showDocument('LEAVE_AND_LICENSE_AGREEMENT.pdf')">View Document</button>
+                <button onclick="showDocument('../LEAVE_AND_LICENSE_AGREEMENT.pdf')">View Document</button>
             </div>
             <div class="template">
                 <h2>GIFT DEED</h2>
                 <p>Print this Gift Deed to officially transfer ownership of a property or asset from one person to another as a gift, specifying the terms and conditions of the transfer.</p>
-                <button onclick="showDocument('GIFT_DEED.pdf')">View Document</button>
+                <button onclick="showDocument('../GIFT_DEED.pdf')">View Document</button>
             </div>
             <div class="template">
                 <h2>AGREEMENT FOR SALE</h2>
                 <p>Print this Agreement of Sale to document the terms and conditions of a property transaction, specifying the agreed-upon details between the seller and the buyer.</p>
-                <button onclick="showDocument('AGREEMENT_FOR_SALE.pdf')">View Document</button>
+                <button onclick="showDocument('../AGREEMENT_FOR_SALE.pdf')">View Document</button>
             </div>
         </section>
     </div>
@@ -129,6 +129,12 @@
         </div>
     </div>
     <script>
+
+        function viewDocument(filename) {
+            const pdfPath = '{{ url_for("pdfs", filename="") }}' + filename;
+            showDocument(pdfPath);
+        }
+    
         function showDocument(pdfPath) {
             const documentPreview = document.getElementById('documentPreview');
             const previewFrame = document.getElementById('previewFrame');

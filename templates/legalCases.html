@@ -15,36 +15,36 @@
       integrity="sha512-bLbJpg3eJa2Tn94u8X0oZWt6wM7c5BGvR5zzp+E58NTrTqIowGll5uJFsEdY2HzPrC2cNSUwArfRhj/VG0Ib3Q=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="legalCases.css" />
-    <link rel="stylesheet" href="navbar.css"/>
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../static/css/legalCases.css" />
+    <link rel="stylesheet" href="../static/css/navbar.css"/>
+    <link rel="stylesheet" href="../static/css/footer.css">
     <title>Legal Cases</title>
   </head>
   <body>
     <nav>
       <div class="container">
           <div class="logo">
-              <img src="logo1.png" alt="Logo" />
+              <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" />
           </div>
           <div class="links">
               <ul>
                   <li>
-                      <a href="templates/index.html">Home</a>
+                      <a href="{{ url_for('index') }}">Home</a>
                   </li>
                   <li>
-                      <a href="templates/index.html#find-a-lawyer">Find a lawyer</a>
+                      <a href="{{ url_for('index') }}#find-a-lawyer">Find a lawyer</a>
                   </li>                    
                   <li>
-                      <a href="templates/index.html#select-a-law">Laws</a>
+                      <a href="{{ url_for('index') }}#select-a-law">Laws</a>
                   </li>
                   <li>
-                      <a href="templatess.html">Templates</a>
+                      <a href="{{ url_for('templatess') }}">Templates</a>
                   </li>
                   <li>
-                      <a href="legalCases.html">Previous Cases</a>
+                      <a href="{{ url_for('legalCases') }}">Previous Cases</a>
                   </li>
                   <li>
-                      <a href="signup.html" class="active">Register</a>
+                      <a href="{{ url_for('signup') }}" class="active">Register</a>
                   </li>
               </ul>
           </div>
@@ -107,7 +107,9 @@
           </div>
       </div> 
   </footer>    
-
-    <script src="legalCases.js" defer></script>
+  <script>
+    var prevCases = "{{ url_for('static', filename='laws_data/indian_kanoon_data.json') }}";
+</script>
+    <script src="{{ url_for('static', filename='js/legalCases.js') }}" defer></script>
   </body>
 </html>

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let originalCases; // To store the original cases for resetting
 
     // Fetch legal cases from JSON file
-    fetch('indian_kanoon_data.json')
+    fetch(prevCases)
         .then(response => response.json())
         .then(data => {
             originalCases = data;

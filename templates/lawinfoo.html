@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lawsinfo</title>
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="lawinfoo.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/lawinfoo.css">
 </head>
 <body>
     <nav>
         <div class="container">
             <div class="logo">
-                <img src="logo1.png" alt="Logo" />
+                <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" />
             </div>
             <div class="links">
                 <ul>
                     <li>
-                        <a href="templates/index.html">Home</a>
+                        <a href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li>
-                        <a href="templates/index.html#find-a-lawyer">Find a lawyer</a>
+                        <a href="{{ url_for('index') }}#find-a-lawyer">Find a lawyer</a>
                     </li>                    
                     <li>
-                        <a href="templates/index.html#select-a-law">Laws</a>
+                        <a href="{{ url_for('index') }}#select-a-law">Laws</a>
                     </li>
                     <li>
-                        <a href="templatess.html">Templates</a>
+                        <a href="{{ url_for('templatess') }}">Templates</a>
                     </li>
                     <li>
-                        <a href="legalCases.html">Previous Cases</a>
+                        <a href="{{ url_for('legalCases') }}">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="signup.html" class="active">Register</a>
+                        <a href="{{ url_for('signup') }}" class="active">Register</a>
                     </li>
                 </ul>
             </div>
@@ -43,6 +43,9 @@
     <div class="content" id="content">
         <!-- Content goes here -->
     </div>
-    <script src="lawsinfoo.js"></script>
+    <script>
+        var jsonDataUrl = "{{ url_for('static', filename='laws_data/') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/lawsinfoo.js') }}"></script>
 </body>
 </html>

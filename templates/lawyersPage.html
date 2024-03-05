@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find a Lawyer</title>
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
@@ -18,7 +18,7 @@
       integrity="sha512-bLbJpg3eJa2Tn94u8X0oZWt6wM7c5BGvR5zzp+E58NTrTqIowGll5uJFsEdY2HzPrC2cNSUwArfRhj/VG0Ib3Q=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <style>
         .sidebar {
             width: 230px;
@@ -126,39 +126,39 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <img src="logo1.png" alt="Logo" />
+                <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" />
             </div>
             <div class="links">
                 <ul>
                     <li>
-                        <a href="templates/index.html">Home</a>
+                        <a href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li>
-                        <a href="templates/index.html#find-a-lawyer">Find a lawyer</a>
+                        <a href="{{ url_for('index') }}#find-a-lawyer">Find a lawyer</a>
                     </li>
                     <li>
-                        <a href="templates/index.html#select-a-law">Laws</a>
+                        <a href="{{ url_for('index') }}#select-a-law">Laws</a>
                     </li>
                     <li>
-                        <a href="templatess.html">Templates</a>
+                        <a href="{{ url_for('templatess') }}">Templates</a>
                     </li>
                     <li>
-                        <a href="legalCases.html">Previous Cases</a>
+                        <a href="{{ url_for('legalCases') }}">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="signup.html" class="active">Register</a>
+                        <a href="{{ url_for('signup') }}" class="active">Register</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="sidebar">
-        <a href="lawyersPage.html?button=Criminal">Criminal Defence</a>
-        <a href="lawyersPage.html?button=Family">Family</a>
-        <a href="lawyersPage.html?button=Business">Business</a>
-        <a href="lawyersPage.html?button=Personal_Injury">Personal Injury</a>
-        <a href="lawyersPage.html?button=Employment">Employment</a>
-        <a href="lawyersPage.html?button=Real_Estate">Real Estate</a>
+        <a href="{{ url_for('lawyersPage', button='Criminal') }}">Criminal Defence</a>
+        <a href="{{ url_for('lawyersPage', button='Family') }}">Family</a>
+        <a href="{{ url_for('lawyersPage', button='Business') }}">Business</a>
+        <a href="{{ url_for('lawyersPage', button='Personal_Injury') }}">Personal Injury</a>
+        <a href="{{ url_for('lawyersPage', button='Employment') }}">Employment</a>
+        <a href="{{ url_for('lawyersPage', button='Real_Estate') }}">Real Estate</a>
     </div>
     <div class="content">
         <div id="lawyer-container">
@@ -222,7 +222,10 @@
         }
 
         function fetchData(jsonFileName) {
-            fetch(`lawyer_data/${jsonFileName}`)
+
+            const jsonUrl = "{{ url_for('static', filename='lawyer_data/') }}" + jsonFileName;
+
+            fetch(jsonUrl)
                 .then(response => response.json())
                 .then(data => {
                     const lawyerdiv = document.getElementById('lawyer-container');
@@ -232,11 +235,11 @@
                         const lawyerstars = lawyer.rating;
                         let stars = '';
                         for (let i = 0; i < lawyerstars; i++) {
-                            stars += `<img src="lawyerIcons/star.png" class="star">`;
+                            stars += `<img src="{{ url_for('static', filename='lawyerIcons/star.png') }}" class="star">`;
                         }
                         lawyerdetails.innerHTML = `
                             <div class="lawyer-image"> 
-                                <img src="lawyerIcons/lawyerProfile.png" class="lawyer-icon">
+                                <img src="{{ url_for('static', filename='lawyerIcons/lawyerProfile.png') }}" class="lawyer-icon">
                             </div>
                             <div class="lawyer-profile">
                                 <h2>${lawyer.name}</h2>
@@ -245,7 +248,7 @@
                                 <p><b>Address:</b> ${lawyer.address}, ${lawyer.street}<br>${lawyer.city}</p>
                             </div>
                             <div class="lawyer-contact">
-                                <a href="applicationForm.html" class="appointment">Book an Appointment</a>
+                                <a href="{{ url_for('applicationForm') }}" class="appointment">Book an Appointment</a>
                                 <div class="lawyer-email">Email: ${lawyer.email}</div>
                                 <div class="lawyer-phone">Phone: ${lawyer.phone}</div>
                             </div>`;
