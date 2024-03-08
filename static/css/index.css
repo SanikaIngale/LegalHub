@@ -7,8 +7,55 @@ body {
     margin: 0;
     padding: 0;
 }
+@keyframes backInLeft {
+0% {
+    opacity: 0;
+    transform: translateX(-800px) scale(0.7);
+}
+80% {
+    transform: translateX(10px) scale(0.9);
+}
+100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+}
+.backInleft {
+animation: backInLeft 2.5s ease;
+}
+.fade-in {
+    opacity: 0;
+    animation: fade-in 2s ease forwards;
+}
+@keyframes fade-in {
+from {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+.slide-in {
+opacity: 0; 
+transform: translateX(-100%); 
+animation: slideInText 2.5s forwards; 
+}
 
-
+@keyframes slideInText {
+from {
+    opacity: 0; 
+    transform: translateX(-100%); 
+}
+to {
+    opacity: 1; 
+    transform: translateX(0); 
+}
+}
+.text-info{
+    text-align:justify;
+}
 nav {
     width: 100%;
     position: relative;
@@ -26,7 +73,7 @@ nav .container {
 }
 
 .logo img {
-    width: 150px;
+    width: 200px;
     /* Make the logo smaller */
     display: block;
 }
@@ -66,7 +113,7 @@ nav .container {
 }
 
 .links a:hover {
-    color: #dfebf6;
+    text-decoration: underline;
 }
 
 .links a.active:hover {
@@ -78,11 +125,6 @@ nav .container {
     font-size: 1rem;
     padding: 0.7rem 1.5rem;
     margin-left: 0.6rem;
-}
-
-.welcome-content {
-    font-size: 1.5em;
-    padding: 10px;
 }
 
 .header-content {
@@ -183,80 +225,9 @@ nav .container {
     cursor:pointer;
     transform: translateY(-15px);
 }
-
-
-/*.cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.card-wrap {
-    position: relative;
-    margin: 1.7rem 0.8rem;
-}
-
-.card {
-    position: relative;
-    width: 100%;
-    max-width: 390px;
-    min-height: 120px;
-    background-color: var(--light-three);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 3rem 2rem;
-    overflow: hidden;
-    transition: 0.3s;
-    background-color: #f2f2f2;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-}
-
-.card:before {
-    content: attr(data-card);
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    font-size: 6rem;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--main-color);
-    opacity: 0.025;
-}
-
-.card:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 0px;
-    bottom: 0;
-    left: 0;
-    background-color: #FFF;
-    transition: 0.3s;
-}
-
-.card-wrap:hover .card {
-    transform: translateY(-15px);
-}
-
-.card-wrap:hover .card:after {
-    height: 8px;
-}
-
-.card .title-sm {
-    line-height: 0.8;
-}
-
-.card .text {
-    font-size: 1.15rem;
-    margin: 1.8rem 0;
-}*/
 .footer {
     background-color: #dfebf6;
-    padding: 1rem 0;
+    padding: 1rem;
     position: relative;
 }
 
@@ -418,7 +389,8 @@ nav .container {
     flex: 1;
     background-color: #e6e6e6;
     text-align: center;
-
+    height:250px;
+    padding-top:30px;
 }
 
 .lawyer-images {
@@ -456,15 +428,18 @@ nav .container {
     /* Calculate width for 3 columns with 40px gap */
     background-color: #e6e6e6;
     text-align: center;
+    height:250px;
+    padding-top:45px;
 }
-
 .law-category h3 {
     color: #333;
     margin-bottom: 10px;
+    font-size: 1.25em;
 }
 .law-category h4 {
     color: #333;
     margin-bottom: 10px;
+    font-size: 1.25em;
 }
 
 .law-category-links {

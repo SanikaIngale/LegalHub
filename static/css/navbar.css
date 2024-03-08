@@ -3,26 +3,22 @@ body {
 margin: 0;
 padding: 0;
 }
-
 nav {
-width: 100%;
-position: relative;
-z-index: 50;
-background-color: #aac7d8;
+    width: 100%;
+    position: relative;
+    z-index: 50;
+    background-color: #aac7d8;
 }
 
 nav .container {
 display: flex;
 justify-content: space-between;
-/* Adjusted */
 align-items: center;
 padding: 10px 20px;
-/* Add padding for better spacing */
 }
 
 .logo img {
-width: 150px;
-/* Make the logo smaller */
+width: 200px;
 display: block;
 }
 
@@ -35,7 +31,6 @@ margin: 0;
 
 .links {
 margin-left: auto;
-/* Push links to the right */
 }
 
 .links a {
@@ -48,7 +43,6 @@ font-weight: 500;
 line-height: 1;
 transition: 0.3s;
 text-decoration: none;
-/* Remove underlines */
 }
 
 .links a.active {
@@ -61,7 +55,7 @@ margin-left: 1rem;
 }
 
 .links a:hover {
-color: #dfebf6;
+text-decoration: underline;
 }
 
 .links a.active:hover {
