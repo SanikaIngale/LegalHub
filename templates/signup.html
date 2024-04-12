@@ -85,7 +85,7 @@
             </svg>
         </a>
         <h2>Signup</h2>
-        <form>
+        <form  method="post" action="{{ url_for('signup') }}">
             <input type="text" name="fullname" placeholder="Full Name" required>
             <br>
             <input type="email" name="email" placeholder="Email" required>
