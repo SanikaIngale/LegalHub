@@ -40,8 +40,18 @@
                         <a href="{{ url_for('legalCases')}}">Previous Cases</a>
                     </li>
                     <li>
-                        <a href="{{ url_for('signup')}}" class="active">Register</a>
+                        {% if logged_in %}
+                        <li>
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ url_for('login') }}" class="active">Login</a>
+                        </li>
+                    {% endif %}
+                    
                     </li>
+                    
                 </ul>
             </div>
         </div>
