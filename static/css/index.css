@@ -54,6 +54,7 @@ to {
 }
 }
 .text-info{
+    font-size:1.10em;
     text-align:justify;
 }
 nav {
@@ -73,8 +74,7 @@ nav .container {
 }
 
 .logo img {
-    width: 200px;
-    /* Make the logo smaller */
+    width: 250px;
     display: block;
 }
 
@@ -94,7 +94,7 @@ nav .container {
     display: inline-block;
     padding: 0.9rem 1.2rem;
     color: #333;
-    font-size: 1rem;
+    font-size: 1.15rem;
     text-transform: uppercase;
     font-weight: 500;
     line-height: 1;
@@ -126,7 +126,6 @@ nav .container {
     padding: 0.7rem 1.5rem;
     margin-left: 0.6rem;
 }
-
 .header-content {
     padding: 20px;
     background-color: #f2f2f2;
@@ -182,7 +181,7 @@ nav .container {
     border: 2px solid black;
     border-radius: 10px;
     margin:10px;
-    height:300px;
+    height:330px;
     font-size:1.15em;
 }
 .card_2{
@@ -196,7 +195,7 @@ nav .container {
     border: 2px solid black;
     border-radius: 10px;
     margin:10px;
-    height:300px;
+    height:330px;
     font-size:1.15em;
 }
 .card_1 h3{
@@ -391,8 +390,11 @@ nav .container {
     text-align: center;
     height:250px;
     padding-top:30px;
+    transition: transform 0.3s ease;
 }
-
+.lawyer-type:hover{
+    transform: scale(1.1);
+}
 .lawyer-images {
     height: 40px;
     margin-top: 20px;
@@ -416,20 +418,22 @@ nav .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* Center the content horizontally */
     gap: 40px;
     margin: 30px 50px;
 }
 
 .law-category {
     flex: 0 0 auto;
-    /* Allow flex items to shrink */
     width: calc((100% - 80px) / 3);
-    /* Calculate width for 3 columns with 40px gap */
     background-color: #e6e6e6;
     text-align: center;
     height:250px;
     padding-top:45px;
+    transition: transform 0.3s ease;
+
+}
+.law-category:hover {
+    transform: scale(1.1);
 }
 .law-category h3 {
     color: #333;
@@ -464,26 +468,30 @@ nav .container {
     text-align: center;
 }
 
-/* Chat button styles */
 .chat-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 9999;
     cursor: pointer;
+    animation: pulse 1.5s infinite ease-in-out;
 }
-
-
-
-/* Additional styles for the chatbot icon */
+@keyframes pulse {
+0% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.1);
+}
+100% {
+    transform: scale(1);
+}
+}
 #chatbot-img {
     width: 90px;
-    /* Adjust the width to make the image smaller */
     height: auto;
-    /* Maintain aspect ratio */
 }
 
-/* Chat pop-up styles */
 .chat-popup {
     display: none;
     position: fixed;

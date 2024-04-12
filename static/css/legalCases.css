@@ -46,8 +46,9 @@ body {
 }
 
 .disclaimerCard p {
-    font-weight: bold;
+    font-weight:1000;
     font-style: italic; 
+    font-size: 1.15em;
     color: #333;
 }
 .closeBtn {
