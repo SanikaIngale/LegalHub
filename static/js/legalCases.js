@@ -36,11 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             caseBox.classList.add('legalCaseBox');
             caseBox.innerHTML = `
-                <h3>${legalCase.title}</h3>
-                <p>${content}<p>
+            <h3>${legalCase.title}</h3>
+            <div class="content">${content}</div>
+            <button class="readMoreBtn">Read More</button>
             `;
 
             legalCasesContainer.appendChild(caseBox);
+            const readMoreBtn = caseBox.querySelector('.readMoreBtn');
+            readMoreBtn.addEventListener('click', () => toggleContentVisibility(caseBox));
         });
     }
 
@@ -81,5 +84,17 @@ document.addEventListener('DOMContentLoaded', function () {
     function getYear(title) {
         const yearMatch = title.match(/\b\d{4}\b/);
         return yearMatch ? parseInt(yearMatch[0]) : 0;
+    }
+    function toggleContentVisibility(caseBox) {
+        const content = caseBox.querySelector('.content');
+        const readMoreBtn = caseBox.querySelector('.readMoreBtn');
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            readMoreBtn.innerText = 'Read More';
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            readMoreBtn.innerText = 'Read Less';
+        }
     }
 });
