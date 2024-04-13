@@ -107,7 +107,7 @@
         </div>
     
         <div class="select-a-law" id="select-a-law">
-            <h2>Select a Law</h2>
+            <h2 class="now">Select a Law</h2>
             <div class="law-category-container">
                 <div class="law-category">
                     <a href="{{ url_for('lawinfoo', law_selected='ipc') }}" class="law-category-links">
@@ -159,7 +159,7 @@
                 <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Criminal') }}" class="lawyer-links">
                         <img src="{{ url_for('static', filename='lawyerIcons/handcuffs.png') }}" class="lawyer-images">
                         <h3>Criminal Defence</h3>
-                        <ul type="none">
+                        <ul type="none" class="list">
                             <li>Criminal offenses</li>
                             <li>Courtroom defense</li>
                             <li>Criminal investigations</li>
@@ -169,7 +169,7 @@
                 <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Family') }}" class="lawyer-links">
                         <img src="{{ url_for('static', filename='lawyerIcons/family.png') }}" class="lawyer-images">
                         <h3>Family</h3>
-                        <ul type="none">
+                        <ul type="none" class="list">
                             <li>Divorce proceedings</li>
                             <li>Child custody</li>
                             <li>Alimony disputes</li>
@@ -179,7 +179,7 @@
                 <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Business') }}" class="lawyer-links">
                         <img src="{{ url_for('static', filename='lawyerIcons/business.png') }}" class="lawyer-images">
                         <h3>Business</h3>
-                        <ul type="none">
+                        <ul type="none" class="list">
                             <li>Corporate legalities</li>
                             <li>Contract negotiations</li>
                             <li>Mergers & acquisitions</li>
@@ -192,7 +192,7 @@
                         class="lawyer-links">
                         <img src="{{ url_for('static', filename='lawyerIcons/injury.png') }}" class="lawyer-images">
                         <h3>Personal Injury</h3>
-                        <ul type="none">
+                        <ul type="none" class="list">
                             <li>Accident claims</li>
                             <li>Medical malpractice</li>
                             <li>Compensation lawsuits</li>
@@ -202,7 +202,7 @@
                 <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Employment') }}" class="lawyer-links">
                         <img src="{{ url_for('static', filename='lawyerIcons/employment.png') }}" class="lawyer-images">
                         <h3>Employment</h3>
-                        <ul type="none">
+                        <ul type="none" class="list">
                             <li>Workplace disputes</li>
                             <li>Employment contracts</li>
                             <li>Labor law compliance</li>
@@ -212,7 +212,7 @@
                 <div class="lawyer-type"><a href="{{ url_for('lawyersPage', button='Real_Estate') }}" class="lawyer-links">
                         <img src="{{ url_for('static', filename='lawyerIcons/realEstate.png') }}" class="lawyer-images">
                         <h3>Real Estate</h3>
-                        <ul type="none">
+                        <ul type="none" class="list">
                             <li>Property transactions</li>
                             <li>Land use disputes</li>
                             <li>Purchase agreements</li>

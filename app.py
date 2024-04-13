@@ -98,6 +98,7 @@ def applicationForm():
 @app.route('/process_input', methods=['POST'])
 def process_input():
     data = request.get_json()
+    print("text processing")
     input_text = data['inputText']
 
     response_text = get_query(input_text)
@@ -108,6 +109,8 @@ def get_query(query):
     print(query)
     prompt = "You are now an AI bot integrated into a law website. You have to answer the following question as an Indian Lawyer. So you are my lawyer.{}".format(query)
     response = model.generate_content(prompt)
+    print(response.text)
+    print("response generating")
     return response.text
 
 if __name__ == '__main__':
